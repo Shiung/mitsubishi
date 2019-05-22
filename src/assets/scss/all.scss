@@ -1,0 +1,13 @@
+@import "~bootstrap/scss/_functions.scss";
+@import "./customer/_utilty";
+@import "./customer/_variables";
+@import "~bootstrap/scss/bootstrap.scss";
+
+// 字體尺寸
+@for $i from 12 through 30 {
+  .font_#{$i} {
+      font-size: $i * 1px;
+  }
+}
+
+// 字體顏色
