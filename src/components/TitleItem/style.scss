@@ -1,0 +1,52 @@
+@import "../../assets/scss/customer/utilty";
+.titleItem{
+  height: 85px;
+  overflow: hidden;
+  .bg_img{
+    width: 1364px;
+    background-color: #ccc;
+    height: 85px;
+    background-image:url(../../../public/img/bannerImg.png);
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-size: auto 85px;
+    position: relative;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      width: 50vw;
+      height: 85px;
+      top: 0;
+      left: 0;
+      background-image:url(../../../public/img/bannerImg2.png);
+      background-position: 100% 100%;
+      background-repeat: repeat-x;
+      background-size: 117px 85px;
+      transform: translateX(-100%);
+    }
+    &::after{
+      content: '';
+      display: block;
+      position: absolute;
+      width: 50vw;
+      height: 85px;
+      top: 0;
+      right: 0;
+      background-image:url(../../../public/img/bannerImg3.png);
+      background-position: 0% 0%;
+      background-repeat: repeat-x;
+      background-size: 117px 85px;
+      transform: translateX(100%);
+    }
+    .title{
+      width: 250px;
+      height: 100%;
+      position: absolute;
+      background-color: $color-cus-titleBlus;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
