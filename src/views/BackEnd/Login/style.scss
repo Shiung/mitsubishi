@@ -1,0 +1,53 @@
+@import "../../../assets/scss/customer/utilty";
+$btnBgUp1: #f3f3f3;
+$btnBgUp2: #dbdbdb;
+$btnBgUp3: #f8f8f8;
+
+%inputType {
+  background-color: transparent;
+  border-width: 0 0 1px 0;
+  border-radius: 0;
+  border-color: $inputColor;
+  color:#fff;
+}
+
+.login{
+  height: 100vh;
+  min-width: 575px;
+  .login_box{
+    width: 100%;
+    height: 245px;
+    background-color: #f0f0f0;
+    background-image:url(../../../../public/img/bannerImg_back_login.png);
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
+  }
+  .login_area{
+    position: relative;
+    background-color: $color-cus-green-back;
+    width: 369px;
+    height: calc( 100% + #{$loginBlockHeight} );
+    border-bottom: $loginBlockHeight solid $color-cus-greenDark-back;
+    .input_fix{
+      width: 250px;
+      >input,
+      >.input-group-append .input-group-text{
+        @extend %inputType;
+      }
+      >input{
+        &::placeholder{
+          color: $inputColor ;
+        }
+      }
+    }
+    .loginBtn{
+      border-radius: 20px; 
+      background: linear-gradient(180deg,$btnBgUp1 0%,$btnBgUp2 50%,$btnBgUp3 51%,$btnBgUp3 100%);
+      padding:2px 35px 5px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+}

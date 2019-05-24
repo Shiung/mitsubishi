@@ -1,3 +1,17 @@
 <div class="indexPage">
-  IndexPage 後台
+  <navItem/>
+  <!-- IndexPage 後台 -->
+  <div class="container_fix">
+    <div class="row d-flex">
+      <div>
+        <sideBarItem/>
+      </div>
+      
+      <div class='page_area'>
+        <div class="container-fluid pr-0 pt-4">
+          <router-view class="page_area_zone"></router-view>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

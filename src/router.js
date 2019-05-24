@@ -21,14 +21,27 @@ export default new Router({
         }
       ]
     },
-    // 前台 (管理者)
+    // 後台 (管理者)
     {
       path: '/admin',
       name: 'admin',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "BackEnd" */ './views/BackEnd/IndexPage')
+      redirect: '/admin',
+      component: () => import(/* webpackChunkName: "BackEnd" */ './views/BackEnd/IndexPage'),
+      children: [
+        {
+          path: '',
+          name: 'albumsAdmin',
+          component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/BackEnd/AlbumsPage')
+        }
+      ]
+    },
+    {
+      path: '/admin/login',
+      name: 'adminLogin',
+      component: () => import(/* webpackChunkName: "admin login" */ '@/views/BackEnd/Login')
     },
     {
       path: '*',

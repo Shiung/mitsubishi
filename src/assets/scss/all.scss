@@ -11,3 +11,16 @@
 }
 
 // 字體顏色
+
+// 後台容器
+.container_fix{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1140px;
+  @media (max-width: 1139px){
+    max-width: 1080px;
+  }
+}

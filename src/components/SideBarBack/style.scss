@@ -1,0 +1,41 @@
+@import "../../assets/scss/customer/utilty";
+.sideBarBack{
+  position: relative;
+  background-color: $color-cus-green-back;
+  width: $sideBarWidth;
+  min-height: 600px;
+  padding-bottom: 340px;
+  background-image: url(../../../public/img/bannerImg_back_sideBar.png);
+  background-repeat:no-repeat;
+  background-position: bottom center;
+  background-size: $sideBarWidth auto;
+  .sideOptions{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: $color-cus-green-back;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    .option_btn{
+      text-decoration: none; 
+      color:#fff;
+      padding: 0 10px;
+      >i{
+        font-size: 22px;
+      }
+      >svg.logout_icon{
+        width: 14px;
+      }
+    }
+  }
+  .border_color_lightGreen {
+    border-color: $inputColor !important;
+  }
+  .sideNav{
+    color: #fff;
+    &.active{
+      background-color: $color-cus-blue;
+    }
+  }
+}
