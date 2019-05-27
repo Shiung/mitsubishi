@@ -49,7 +49,9 @@
         height: 100%;
         top: 0;
         left: 0;
-        background-image: linear-gradient(45deg, #eee 1px, #ddd 10px);
+        background-color : $color-cus-gray;
+        background-image : linear-gradient(rgba(255,255,255,.5) 1px, transparent 0),
+        linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 0);
         background-size: 10px 10px;
         background-position: left top;
         background-repeat: repeat;
