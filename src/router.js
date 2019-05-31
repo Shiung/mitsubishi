@@ -18,6 +18,11 @@ export default new Router({
           path: '',
           name: 'IndexPage',
           component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/AlbumsPage')
+        },
+        {
+          path: 'editAlbumPage',
+          name: 'editAlbumPage',
+          component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/EditAlbumPage')
         }
       ]
     },

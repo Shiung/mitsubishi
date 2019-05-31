@@ -1,0 +1,14 @@
+<div class="layerItem w-100 h-100">
+  <div class="canvas_container position-relative shadow-sm">
+    <div class="layer position-absolute bg-white" 
+         v-for="(item, key) in layerObj.layers" 
+         :key="key"
+         :data-x='item.x'
+         :data-y='item.y'
+         :data-width='item.w'
+         :data-height='item.h'
+    >
+      <canvasBox v-if="opened" :ratio="ratioAll"/>
+    </div>
+  </div>
+</div>

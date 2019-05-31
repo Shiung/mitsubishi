@@ -1,0 +1,32 @@
+@import "../../assets/scss/customer/utilty";
+.canvasItem{
+  canvas{
+    height: 100%;
+    width: 100%;
+    background-color : $color-cus-gray;
+    background-image : linear-gradient(rgba(255,255,255,.5) 1px, transparent 0),
+    linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 0);
+    background-size: 10px 10px;
+    background-position: left top;
+    background-repeat: repeat;
+  }
+  button{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .options{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba( 0, 0, 0, .5);
+    top: 0;
+    left: 0;
+    visibility: hidden;
+  }
+  &:hover{
+    .options{
+      visibility:visible;
+    }
+  }
+}

@@ -1,19 +1,5 @@
 @import "../../../assets/scss/customer/utilty";
 .albumsPage{
-  .albums_area{
-    position: relative;
-    &::before{
-      content: '';
-      display: block;
-      position: absolute;
-      width: calc( 100% + 2px );
-      height: 5px;
-      background-color: $color-cus-blue;
-      top: -5px;
-      left: -1px;
-    }
-    min-height: 300px;
-  }
   .option_btn{
     color: $color-cus-darkgray2;
     text-decoration: none;

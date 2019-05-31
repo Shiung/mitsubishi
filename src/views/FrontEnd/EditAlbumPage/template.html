@@ -1,0 +1,19 @@
+<div class="editAlbum">
+  <titleItem :title='titleHistory'/>
+  <div class="container">
+    <div class="row">
+      <div class="content_main_box shadow-sm w-100 p-4">
+        <div class="innerContent w-100">
+          <div class="left">
+            <div class="" v-for="item in 24">
+              {{item}}
+            </div>
+          </div>
+          <div class="right h-100">
+            <layerBox :layerObj="layer" v-if="opened"/>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>    
+</div>
