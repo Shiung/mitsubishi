@@ -1,10 +1,41 @@
-<div class="canvasItem w-100 h-100">
+<div class="canvasItem w-100 h-100" @mouseover="optionsTrigger = true" @mouseleave="optionsTrigger = false">
   <!-- 這裡是canvas -->
   <canvas class="myCanvas" ><span class="text-danger">Your browser does not support the HTML5 canvas tag</span></canvas>
-  <button @click='getConfigParams'>按我</button>
   <!-- 功能 -->
-  <!-- <div class="options d-flex justify-content-between align-items-end" v-show="optionTrigger">
-    <i class="material-icons">photo_size_select_large</i>
-    功能
-  </div> -->
+  <button 
+    class="zoomOption options d-flex justify-content-center align-items-center shadow-sm" 
+    @click="zoomOption = !zoomOption"
+    :class="{'active' : zoomOption, 'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+  ><i class="material-icons">zoom_out_map</i></button>
+  <transition name="selectOption" mode="out-in" appear>
+    <div class="inputBox" v-if="zoomOption && optionsTrigger">
+      <input type="range" class="form-control-range" min='1' max='5' step='0.00001' v-model.number='imgScale'>
+    </div>
+  </transition>
+
+  <button 
+    class="rotateOption options d-flex justify-content-center align-items-center shadow-sm" 
+    @click="rotateOption = !rotateOption"
+    :class="{'active' : rotateOption, 'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+  ><i class="material-icons">rotate_90_degrees_ccw</i></button>
+  <transition name="selectOption" mode="out-in" appear>
+    <div class="inputBox" v-if="rotateOption && optionsTrigger">
+      <input type="range" class="form-control-range" min='-180' max='180' step='1' v-model.number='imgRotate'>
+    </div>
+  </transition>
+
+  <button 
+    class="imgChangeOption options d-flex justify-content-center align-items-center shadow-sm" 
+    :class="{'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+  ><i class="material-icons">photo</i></button>
+  
+  <!-- loading -->
+  <loading 
+    :active.sync="showLoading"
+    color="#002fd3"
+    :opacity= "loadingOpacity"
+    :is-full-page="fullNone"
+    loader="spinner"
+  >
+  </loading>
 </div>
