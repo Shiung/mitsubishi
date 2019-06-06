@@ -3,6 +3,12 @@
 @import "./customer/_variables";
 @import "~bootstrap/scss/bootstrap.scss";
 
+//vue transition 換頁動畫
+@import "./customer/_vuetransition";
+
+// vue overlay loading
+@import '~vue-loading-overlay/dist/vue-loading.css';
+
 // 字體尺寸
 @for $i from 12 through 30 {
   .font_#{$i} {
