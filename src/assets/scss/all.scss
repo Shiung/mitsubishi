@@ -6,8 +6,14 @@
 //vue transition 換頁動畫
 @import "./customer/_vuetransition";
 
+//vue img lazyloading
+@import "./customer/_lazyloading";
+
 // vue overlay loading
 @import '~vue-loading-overlay/dist/vue-loading.css';
+
+// vue snotify
+@import "~vue-snotify/styles/material";
 
 // 字體尺寸
 @for $i from 12 through 30 {
@@ -17,6 +23,9 @@
 }
 
 // 字體顏色
+.font-color-darkgray2{
+  color: $color-cus-darkgray2;
+}
 
 // 按鈕
 button{

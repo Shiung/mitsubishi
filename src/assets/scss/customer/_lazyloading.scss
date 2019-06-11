@@ -1,0 +1,29 @@
+@import "./_utilty";
+
+.lazyloadingStatus{
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 0;
+  color:$color-cus-lightblue;
+}
+img[lazy=loading]{
+  &~.lazyloadingStatus{
+    display: block;
+  }
+}
+img[lazy=loaded],img[lazy=error]{
+  animation:imgfade .5s;
+}
+@keyframes imgfade {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
