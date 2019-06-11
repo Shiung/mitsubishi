@@ -36,6 +36,11 @@ button{
     top: -5px;
     left: -1px;
   }
+  @media screen and (max-width: 575px){
+    &::before{
+      width: 100%;
+    }
+  }
   min-height: 300px;
 }
 

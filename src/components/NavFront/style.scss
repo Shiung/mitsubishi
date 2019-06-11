@@ -69,6 +69,27 @@
           visibility: visible;
         }
       }
+      @media screen and (max-width: 575px) {
+        width: 50%;
+        &:last-child{
+          border: none;
+        }
+      }
     }
+  }
+
+  @media screen and (max-width: 575px) {
+    .rwd_logo{
+      width: 300px;
+    }  
+  }
+  @media screen and (max-width: 374px) {
+    .rwd_logo{
+      width: 250px;
+    }  
+  }
+  .option_btn_rwd{
+    text-decoration: none; 
+    color:$color-cus-green;
   }
 }
