@@ -1,18 +1,38 @@
 <footer class="footerItem">
-  <div class="container">
+  <div class="container position-relative">
     <div class="row d-flex flex-column justify-content-center align-items-center py-4">
-      <a href="javascript:;">
-        <img src="../../..//public/img/logo.png" alt="" class="img-fluid">
+      <div class="rwdScroll d-md-none d-flex justify-content-center align-items-center" @click="rwdInfoShow = !rwdInfoShow">
+        <i class="material-icons" :class="{'rotate' : rwdInfoShow}">keyboard_arrow_up</i>
+      </div>
+      
+      <a href="javascript:;" class="d-md-inline d-none">
+        <img src="../../../public/img/logo.png" alt="" class="img-fluid">
       </a>
-
-      <div class="d-flex align-items-center justify-content-center flex-md-row flex-column my-4">
+      <div class="d-md-flex d-none align-items-center justify-content-center flex-md-row flex-column my-4">
         <p class="font_12 mb-0 text-md-left text-center">大阪市西区江戸堀2丁目1番地13号あさひ高速印刷ビル</p>
         <p class="font_12 mb-0 text-md-left text-center mx-md-3 mx-0">TEL：06-6448-7521（代）</p>
         <p class="font_12 mb-0 text-md-left text-center">FAX：06-6447-1896</p>
       </div>
 
+      <!-- rwd -->
+      <transition name="fade" mode="out-in" appear>
+        <div class="d-flex d-md-none flex-column justify-content-center align-items-center" v-if="rwdInfoShow">
+          <a href="javascript:;">
+            <img src="../../../public/img/logo.png" alt="" class="img-fluid">
+          </a>
+          <span class="font_14 font-color-darkgray2 text-center mt-2">Asahi Kosoku Printing Co,.Ltd. All rights reserved</span>
+          <div class="d-flex align-items-center justify-content-center flex-column my-4">
+            <p class="font_12 mb-0 text-md-left text-center">大阪市西区江戸堀2丁目1番地13号あさひ高速印刷ビル</p>
+            <p class="font_12 mb-0 text-md-left text-center mx-md-3 mx-0">TEL：06-6448-7521（代）</p>
+            <p class="font_12 mb-0 text-md-left text-center">FAX：06-6447-1896</p>
+          </div>
+        </div>
+      </transition> 
+      <!-- rwd -->
+
       <div class="copyright font_12 text-md-left text-center">
-        Copyright &copy; 2017 Asahi Kosoku Printing Co,.Ltd. All rights reserved
+        <span class="d-md-inline d-none">Copyright &copy; 2017 Asahi Kosoku Printing Co,.Ltd. All rights reserved</span>
+        <span class="d-inline d-md-none">Copyright &copy; 2017</span>
       </div>
 
     </div>

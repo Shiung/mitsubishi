@@ -1,4 +1,27 @@
 @import "../../assets/scss/customer/utilty";
 .footerItem{
   border-top: 3px solid $color-cus-green;
+  .rwdScroll{
+    background-color: $color-cus-darkgray;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: $color-cus-blue;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    > i {
+      font-weight: bold;
+      transform: rotateZ(0deg);
+      transition: .5s;
+      &.rotate {
+        transform: rotateZ(180deg);
+      }
+    }
+  }
+  @media screen and (max-width: 767px){
+    border-color: $color-cus-darkgray;
+  }
 }

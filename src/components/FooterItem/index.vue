@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: 'footerItem'
+  name: 'footerItem',
+  data () {
+    return {
+      rwdInfoShow: true
+    }
+  }
 }
 </script>
 
