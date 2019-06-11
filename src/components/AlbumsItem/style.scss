@@ -1,0 +1,103 @@
+@import '../../assets/scss/customer/utilty';
+.albumsItem{
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  .albums_box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    &.background{
+      background-color : $color-cus-gray;
+      background-image : linear-gradient(rgba(255,255,255,.5) 1px, transparent 0),
+      linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 0);
+      background-size: 10px 10px;
+      background-position: left top;
+      background-repeat: repeat;
+    }
+    // pc 版功能顯示
+    .option_show{
+      opacity: 0;
+      transition: .3s;
+    }
+    &:hover{
+      .option_show{
+        opacity: 1;
+      }
+    }
+  }  
+
+  // 功能 ----------------------
+  .option_show{
+    opacity: 0;
+    transition: .3s;
+  }
+  .option_area{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  .delete_option{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    color: $color-cus-red;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+  .option_btn{
+    color: #fff;
+    height: 35px;
+    text-decoration: none;
+    background-color: $color-cus-darkgray2;
+    transition: .3s;
+    >i{
+      font-size: 18px;
+    }
+    >svg{
+      width: 18px;
+    }
+    &:hover{
+      background-color: $color-cus-green;
+    }
+  }
+
+  // 移動裝置
+  .moveDeviceOption{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .rwd_option_box{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0,.3);
+    .nav_box{
+      position: relative;
+      z-index: 11;
+      width: 300px;
+      background-color: #fff;
+      >.nav-link{
+        color: $color-cus-darkgray2;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+      >.nav-link:not(:last-child){
+        border-bottom : 1px solid rgba($color-cus-darkgray2, .3);
+      }
+    }
+  }
+  // 功能 ---------------------- end
+}
