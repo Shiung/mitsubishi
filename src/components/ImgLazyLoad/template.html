@@ -1,0 +1,10 @@
+<div class="imgLazyLoad position-relative d-flex justify-content-center align-items-center">
+  <!-- lazy loading -->
+  <div v-lazy-container="{ selector: 'img' }" class="img-area d-flex justify-content-center align-items-center">
+    <img :data-src="imgUrl" :data-loading="imgLoading" :data-error="imgError" class='img-fluid'>
+    <div class="spinner-border lazyloadingStatus" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <!-- lazy loading -->
+</div>
