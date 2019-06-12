@@ -5,7 +5,7 @@
   <button 
     class="zoomOption options d-flex justify-content-center align-items-center shadow-sm" 
     @click="zoomOption = !zoomOption"
-    :class="{'active' : zoomOption, 'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+    :class="{'active' : zoomOption, 'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
   ><i class="material-icons">zoom_out_map</i></button>
   <transition name="selectOption" mode="out-in" appear>
     <div class="inputBox" v-if="zoomOption && optionsTrigger">
@@ -16,7 +16,7 @@
   <button 
     class="rotateOption options d-flex justify-content-center align-items-center shadow-sm" 
     @click="rotateOption = !rotateOption"
-    :class="{'active' : rotateOption, 'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+    :class="{'active' : rotateOption, 'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
   ><i class="material-icons">rotate_90_degrees_ccw</i></button>
   <transition name="selectOption" mode="out-in" appear>
     <div class="inputBox" v-if="rotateOption && optionsTrigger">
@@ -26,7 +26,7 @@
 
   <button 
     class="imgChangeOption options d-flex justify-content-center align-items-center shadow-sm" 
-    :class="{'hover' : optionsTrigger, 'moveDevice' : !devicePC}"
+    :class="{'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
   ><i class="material-icons">photo</i></button>
   
   <!-- loading -->

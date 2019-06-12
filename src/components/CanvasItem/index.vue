@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex'
 import Vector from '@/assets/js/vectorClass.js'
 export default {
   name: 'canvasItem',
@@ -17,7 +18,6 @@ export default {
   },
   data () {
     return {
-      devicePC: true, // true : pc , false : 移動裝置
       // canvas config----
       canvasDom: null, // canvas dom
       canvasBoxDom: null, // canvas 基準容器
@@ -50,6 +50,10 @@ export default {
       // loading -------------- end
     }
   },
+  computed: {
+    // vuex
+    ...mapGetters(['deviceMobileStatus'])
+  },
   methods: {
     init () {
       // 抓取動元素
@@ -63,9 +67,9 @@ export default {
       })
       vm.resizeCanvas()
       // 取得滑鼠監聽事件 (pc || mobile)
-      if (this.devicePC) {
-        vm.mouseAddEventListener()
-      } else vm.touchAddEventListener()
+      if (this.deviceMobileStatus) {
+        vm.touchAddEventListener()
+      } else vm.mouseAddEventListener()
     },
     // 滑鼠事件(電腦) --------------------------------------------
     mouseAddEventListener () {
@@ -269,8 +273,6 @@ export default {
     }
   },
   mounted () {
-    // 判斷裝置
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) this.devicePC = false
     // 啟動初始化
     this.init()
   },
