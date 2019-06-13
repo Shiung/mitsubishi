@@ -1,8 +1,18 @@
 <div class="canvasItem w-100 h-100" @mouseover="optionsTrigger = true" @mouseleave="optionsTrigger = false">
   <!-- 這裡是canvas -->
   <canvas class="myCanvas" ><span class="text-danger">Your browser does not support the HTML5 canvas tag</span></canvas>
+
+  <!-- 沒有圖片 -->
+  <div class="noImg d-flex justify-content-center align-items-center" v-if="Object.keys(imgSrc).length === 0">
+    <button 
+      class="uploadImg border-0 font_14 text-capitalize d-flex align-items-center shadow"
+      @click="openImgBox"
+    ><i class="material-icons mr-1">photo</i>set photo</button>
+  </div>
+
   <!-- 功能 -->
   <button 
+    v-if="optionStatus && Object.keys(imgSrc).length !== 0"
     class="zoomOption options d-flex justify-content-center align-items-center shadow-sm" 
     @click="zoomOption = !zoomOption"
     :class="{'active' : zoomOption, 'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
@@ -14,6 +24,7 @@
   </transition>
 
   <button 
+    v-if="optionStatus && Object.keys(imgSrc).length !== 0"
     class="rotateOption options d-flex justify-content-center align-items-center shadow-sm" 
     @click="rotateOption = !rotateOption"
     :class="{'active' : rotateOption, 'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
@@ -25,8 +36,10 @@
   </transition>
 
   <button 
+    v-if="optionStatus && Object.keys(imgSrc).length !== 0"
     class="imgChangeOption options d-flex justify-content-center align-items-center shadow-sm" 
-    :class="{'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
+    @click="openImgBox"
+    :class="{'active' : photoOpen, 'hover' : optionsTrigger, 'moveDevice' : deviceMobileStatus}"
   ><i class="material-icons">photo</i></button>
   
   <!-- loading -->
@@ -38,4 +51,13 @@
     loader="spinner"
   >
   </loading>
+
+  <!-- 圖片選擇 -->
+  <transition name="page" mode="out-in" appear>
+    <imgGroupBox 
+      v-if="photoOpen"
+      @closeHandler='closePhotoBox'
+      @imgSetHandler='imgReset'
+    /> 
+  </transition>
 </div>

@@ -10,6 +10,11 @@ export default {
         return {}
       }
     },
+    // 功能是否要開啟
+    optionStatus: {
+      type: Boolean,
+      default: true
+    },
     // 等比例縮放 依據外層的傳入值
     ratio: {
       type: Number,
@@ -26,6 +31,7 @@ export default {
       canvasHeight: 0,
       // canvas config---- end
       // img config-------
+      imgSrc: this.img, // 記憶體圖片obj , defeult props 資料
       imgDom: null,
       imgScale: this.img.scale ? this.img.scale : 1, // 縮放比例
       imgHeightRatio: 1, // 圖片寬高比
@@ -46,13 +52,19 @@ export default {
       // loading --------------
       showLoading: true,
       loadingOpacity: 0.6,
-      fullNone: false
+      fullNone: false,
       // loading -------------- end
+      // photo 選單開啟 --------
+      photoOpen: false
+      // photo 選單開啟 -------- end
     }
   },
   computed: {
     // vuex
     ...mapGetters(['deviceMobileStatus'])
+  },
+  components: {
+    imgGroupBox: () => import('@/components/ImgGroupItem')
   },
   methods: {
     init () {
@@ -66,6 +78,8 @@ export default {
         vm.resizeCanvas()
       })
       vm.resizeCanvas()
+      // 如果功能prop 為false 結束
+      if (!this.optionStatus) return
       // 取得滑鼠監聽事件 (pc || mobile)
       if (this.deviceMobileStatus) {
         vm.touchAddEventListener()
@@ -224,12 +238,12 @@ export default {
       let ctx = this.ctx
       // 初始清除畫布
       ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
-      if (Object.keys(this.img).length !== 0) {
+      if (Object.keys(this.imgSrc).length !== 0) {
         let vm = this
         if (!this.imgDom) {
           vm.showLoading = true
           let img = new Image()
-          img.src = this.img.src
+          img.src = this.imgSrc.src
           // 圖片loading
           img.onload = function () {
             vm.imgDom = this
@@ -270,7 +284,29 @@ export default {
         scale: this.imgScale, // 圖片縮放量
         rotate: this.imgRotate // 圖片旋轉角度
       }
+    },
+    // imgGroupBox handler ------------------
+    openImgBox () {
+      this.photoOpen = true
+    },
+    closePhotoBox () {
+      this.photoOpen = false
+    },
+    imgReset (src) {
+      // 關閉photo 視窗
+      this.closePhotoBox()
+      // 移除舊的圖片 讓canvas 判斷是否要重新 load 圖檔
+      this.imgDom = null
+      // 更換新的圖片src
+      this.imgSrc.src = src
+      // 定位重新定義
+      this.imgTranslate.set(0, 0) // 移動位置重設(0, 0)
+      this.imgScale = 1 // 重設放大為1
+      this.imgRotate = 0 // 重設旋轉角度為 0
+      // 重新畫圖
+      this.canvasDraw()
     }
+    // imgGroupBox handler ------------------ end
   },
   mounted () {
     // 啟動初始化
