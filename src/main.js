@@ -10,6 +10,8 @@ import Loading from 'vue-loading-overlay'
 import VueLazyload from 'vue-lazyload'
 // vue snotify
 import Snotify, { SnotifyPosition } from 'vue-snotify'
+// vue2-dropzone
+import vue2Dropzone from 'vue2-dropzone'
 
 Vue.config.productionTip = false
 
@@ -31,6 +33,8 @@ const options = {
   }
 }
 Vue.use(Snotify, options)
+// vue2-dropzone
+Vue.component('vueDropzone', vue2Dropzone) // 全域使用
 
 new Vue({
   router,
