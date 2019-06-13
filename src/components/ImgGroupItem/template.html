@@ -1,0 +1,83 @@
+<div class="imgGroupItem d-flex justify-content-center align-items-center position-fixed w-100 h-100" @click.self="closeBox">
+  <div class="imgGroupBox shadow">
+
+    <!-- header (標題 / 關閉) -->
+    <div class="title_box d-flex justify-content-between align-items-center">
+      <div class="text-capitalize text-white title d-flex align-items-center mx-2">
+        <i class="material-icons">crop_original</i>
+        photo
+      </div>
+      <button 
+        class="cancel border-0 d-flex align-items-center justify-content-center align-self-stretch text-white"
+        @click="closeBox"
+      >
+        <i class="material-icons">clear</i>
+      </button>
+    </div>
+
+    <!-- 功能 (上傳 / ) -->
+    <div class="modify d-flex align-items-center justify-content-center">
+      <button class="modify_btn border-0 font_12 text-capitalize d-flex align-items-center" @click="dropzoneOpen = true"><i class="material-icons mr-1">cloud_upload</i>upload new image</button>
+    </div>
+
+    <!-- 圖片位置   -->
+    <div class="img_area d-flex flex-wrap align-content-start">
+      <label class="img_box flex-grow-0 flex-shrink-0" v-for="item in 21" :key="item" :for="item">
+        <transition name="fade" mode="out-in" appear>
+          <albumsItem
+            :optionFunction="false" 
+            :ID="item" 
+          />
+        </transition>
+        <input type="radio" name="selectImgInput" class="d-none" :id="item" v-model="selectImg" :value="item">
+        <div class="selected_box d-flex justify-content-center align-items-center" :class="{'active' : item === selectImg}">
+          <i class="material-icons">check_circle</i>
+        </div>
+      </label>
+      <div class="img_box readMore flex-grow-0 flex-shrink-0 text-capitalize d-flex align-items-center justify-content-center">read more</div>
+    </div>
+
+    <!-- 功能 -->
+    <div class="options d-flex justify-content-center align-items-center">
+      <button 
+        class="options_btn border-0 font_12 text-capitalize d-flex align-items-center"
+        @click.self="closeBox"
+      >
+        cancel
+      </button>
+      <button 
+        class="options_btn border-0 font_12 text-capitalize d-flex align-items-center ml-3"
+        @click.self="submit"
+      >
+        submit
+      </button>
+    </div>
+  </div> 
+  
+  <!-- 圖片上傳 -->
+  <!-- vue2 dropzone -->
+  <div class="dropzone_box d-flex justify-content-center align-items-center" v-if="dropzoneOpen" @click.self="closeVue2Dropzone">
+    <transition name="page" mode="out-in" appear>
+      <div class="dropzone_box_area bg-white shadow position-relative" v-if="dropzoneOpen">
+        <vue-dropzone 
+          :options="dropzoneOptions" 
+          :useCustomSlot=true 
+          id="dropzone"
+          class="dropzone_component"
+          @vdropzone-success="uploadImgSuccess"
+          @vdropzone-error="uploadImgError"
+          @vdropzone-processing="processItem"
+          @vdropzone-complete="uploadComplete"
+          ref="vueDropZoneDZ">
+          <div class="dropzone-custom-content">
+            <h3 class="dropzone-custom-title d-flex align-items-center justify-content-center"><i class="material-icons mr-2">cloud_upload</i>Drag and drop to upload Photo!</h3>
+            <div class="subtitle">...or click to select a file from your computer</div>
+          </div>
+        </vue-dropzone>
+
+        <button @click="closeVue2Dropzone" class="upload_cancel border-0 d-flex align-items-center justify-content-center p-0"><i class="material-icons">clear</i></button>
+      </div>
+    </transition>
+  </div>
+  
+</div>

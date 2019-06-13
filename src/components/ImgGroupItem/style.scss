@@ -1,0 +1,159 @@
+@import "../../assets/scss/customer/utilty";
+
+$titleHeight: 40px;
+$modifyHeight: 50px;
+$optionHeight: 100px;
+$imgMargin: 10px;
+
+.imgGroupItem{
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(white, .5);
+  .imgGroupBox{
+    width: 500px;
+    height: 600px;
+    max-height: 100%;
+    background-color: #fff;
+    .title_box{
+      height: $titleHeight;
+      background-color: $color-cus-blue;
+      >.title{
+        > i {
+          font-size: 18px;
+        }
+      }
+      >.cancel{
+        width: $titleHeight;
+        background-color: $color-cus-green;
+      }
+    }
+    .modify{
+      height: $modifyHeight;
+      background-color: #fff;
+      box-shadow: 0px 0.1rem .2rem rgba(0,0,0,.15);
+      .modify_btn{
+        border-radius: 20px;
+        padding: 5px 25px 5px 20px;
+        background-color: $color-cus-darkgray;
+        color: $color-cus-green;
+        > i {
+          font-size: 18px;
+        }
+        transition: .5s;
+        &:hover{
+          background-color: $color-cus-green;
+          color: #fff;
+        }
+      }
+    }
+    .img_area{
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; // 讓手機版左右滑動更滑順
+      height: calc( 100% - #{$modifyHeight} - #{$titleHeight} - #{$optionHeight} );
+      // padding: 10px;
+      > .img_box {
+        margin: $imgMargin;
+        width: calc( ( 100% / 3 ) - #{$imgMargin * 2});
+        cursor: pointer;  
+        border: 1px solid $color-cus-green;
+        position: relative;
+        >.selected_box {
+          opacity: 0;
+          position: absolute;
+          display: block;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba( $color-cus-green, .5 );
+          color:#fff;
+          z-index: 1;
+          transition: .5s;
+          > i {
+            font-size: 50px;
+            transform: translateY(10px);
+            transition: .5s;
+          }
+          &.active{
+            opacity: 1;
+            > i {
+              transform: translateY(0px);
+            }
+          }
+        }
+      }
+      .readMore{
+        width: calc( 100% - #{$imgMargin * 2}) ;
+        color:$color-cus-green;
+        cursor: pointer;
+      }
+    }
+    .options{
+      height: $optionHeight;
+      box-shadow: 0px -0.1rem .2rem rgba(0,0,0,.15);
+      .options_btn{
+        border-radius: 20px;
+        padding: 5px 25px 5px 20px;
+        background-color: $color-cus-darkgray;
+        color: $color-cus-green;
+        transition: .5s;
+        &:hover{
+          background-color: $color-cus-green;
+          color: #fff;
+        }
+      }
+    }
+    @media screen and (max-width: 575px){
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .dropzone_box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(white, .5);
+    .dropzone_box_area{
+      width: 80%;
+      height: 80%;
+      .dropzone_component{
+        margin: 10px;
+        width: calc( 100% - 20px );
+        height: calc( 100% - 20px);
+        overflow-y: auto;
+        position: relative;
+        .dropzone-custom-content{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      .dropzone_box_options{
+        .option_btn{
+          background-color: #ccc;
+          border-radius: 10px;
+        }
+      }
+      .upload_cancel{
+        background-color: $color-cus-darkgray2;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-right: -12px;
+        margin-top: -12px;
+        color:#fff;
+        > i {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
