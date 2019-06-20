@@ -18,6 +18,12 @@
 // vue Dropzone
 @import '~vue2-dropzone/dist/vue2Dropzone.min.css';
 
+// 日文字體
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900&display=swap');
+html, body{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
 // 字體尺寸
 @for $i from 12 through 30 {
   .font_#{$i} {
