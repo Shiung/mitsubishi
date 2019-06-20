@@ -15,6 +15,7 @@ export default {
             y: 10,
             w: 406,
             h: 282.5,
+            type: 'img',
             img: {
               src: 'https://www.tgilive.com/image/frontend/banner/A8BN-01.jpg',
               translate: {
@@ -29,7 +30,8 @@ export default {
             x: 426,
             y: 10,
             w: 406,
-            h: 282.5
+            h: 282.5,
+            type: 'img'
             // img: {
             //   src: 'https://www.tgilive.com/image/frontend/banner/B3BN-05.jpg'
             // }
@@ -38,10 +40,23 @@ export default {
             x: 10,
             y: 302.5,
             w: 822,
-            h: 283.5,
+            h: 200, // 283.5,
+            type: 'img',
             img: {
               src: 'https://www.tgilive.com/image/frontend/banner/C2BN-02.jpg'
             }
+          },
+          {
+            x: 10,
+            y: 512.5,
+            w: 822,
+            h: 73, // 283.5,
+            type: 'text',
+            position: 'right',
+            color: '#00f',
+            scale: 1.5,
+            weight: 400,
+            textVal: '彼らの機器や装置はすべて生命体だ。彼らの機器や装置はすべて生命体だ'
           }
         ]
       }
