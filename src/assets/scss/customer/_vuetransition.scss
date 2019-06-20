@@ -153,3 +153,19 @@
 .gotopOption-leave-active {
   transition: .5s  ;
 }
+
+//maxHeight100
+.maxHeight100-enter,
+.maxHeight100-leave-to {
+  max-height: 0;
+}
+
+.maxHeight100-enter-to,
+.maxHeight100-leave {
+  max-height: 100px;
+}
+
+.maxHeight100-enter-active,
+.maxHeight100-leave-active {
+  transition: .5s  ;
+}
