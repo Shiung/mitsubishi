@@ -1,0 +1,150 @@
+@import "../../assets/scss/customer/utilty";
+
+$titleHeight: 40px;
+$modifyHeight: 40px;
+$optionHeight: 80px;
+$imgMargin: 10px;
+
+.textEditItem{
+  cursor: auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(white, .5);
+  .text_box{
+    width: 890px;
+    background-color: #fff;
+  }
+  .title_box{
+    height: $titleHeight;
+    background-color: $color-cus-lightblue;
+    >.title{
+      > i {
+        font-size: 18px;
+      }
+    }
+    >.cancel{
+      width: $titleHeight;
+      background-color: $color-cus-green;
+    }
+  }
+  .modify{
+    height: $modifyHeight;
+    background-color: #fff;
+    .modify_btn{
+      border: none;
+      border-radius: 20px;
+      background-color: #fff;
+      color: $color-cus-green;; 
+      transition: .3s;
+      > i {
+        font-size: 18px;
+      }
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+      &:hover{
+        background-color: $color-cus-green;
+        color:#fff;
+      }
+      &.active{
+        background-color: $color-cus-green;
+        color:#fff;
+      }
+      >.font_scale_input{
+        width: 150px;
+        background-color: #fff;
+        border: 1px solid $color-cus-darkgray;
+        padding: 10px;
+        bottom: -5px;
+        z-index: 1;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        border-radius: 10px;
+      }
+      >.select_box{
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        overflow: hidden;
+        > select{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .modify_text{
+    overflow: hidden;
+    input{
+      outline: none;
+      box-shadow: none;
+      border-top-right-radius:0;
+      border-bottom-right-radius:0;
+    }
+    .modify_text_btn{
+      background-color: $color-cus-darkgray;
+      color: $color-cus-green;
+      // height: 30px;
+      width: 50px;
+      // border-radius: 50%;
+      border-top-right-radius:0.25rem;
+      border-bottom-right-radius:0.25rem;
+    }
+  }
+  .edit_box{
+    padding: 15px;
+    background-color: $color-cus-gray;
+    box-shadow: 0px 0.1rem .2rem rgba(0,0,0,.15) inset, 0px -0.1rem .2rem rgba(0,0,0,.15) inset;
+  }
+  .edit_area_father{
+    width: 100%;
+    height: 0;
+    padding-top:50px;
+    background-color: #fff;
+    position: relative;
+  }
+  .edit_area{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow: hidden;
+  }
+  .options{
+    height: $optionHeight;
+    .options_btn{
+      border-radius: 20px;
+      padding: 5px 25px 5px 20px;
+      background-color: $color-cus-darkgray;
+      color: $color-cus-green;
+      transition: .5s;
+      &:hover{
+        background-color: $color-cus-green;
+        color: #fff;
+      }
+    }
+  }
+
+  .vue_color_box{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(white, .5);
+  }
+
+  @media screen and (max-width: 991px){
+    .text_box{
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 575px){
+    .edit_box{
+      padding: 15px 5px;
+    } 
+  }
+}

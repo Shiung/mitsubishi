@@ -1,0 +1,94 @@
+<div class="textEditItem d-flex justify-content-center align-items-center position-fixed" @click.self="cancel">
+  <div class="text_box shadow">
+    <div class="title_box d-flex justify-content-between align-items-center">
+      <div class="title text-capitalize text-white d-flex align-items-center mx-2">
+        <i class="material-icons">translate</i>
+        text edit
+      </div>
+      <button 
+        class="cancel border-0 d-flex align-items-center justify-content-center align-self-stretch text-white"
+        @click="cancel"
+      >
+        <i class="material-icons">clear</i>
+      </button>
+    </div>  
+    <div class="modify d-flex align-items-center justify-content-center">
+      <button class="modify_btn d-flex justify-content-center align-items-center position-relative">
+        <i class="material-icons">format_bold</i>
+        <div class="select_box position-absolute">
+          <select class="custom-select" v-model.number="fontWeight">
+            <option value="100">100</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="700">700</option>
+            <option value="900">900</option>
+          </select>
+        </div>
+      </button>
+      <button class="modify_btn d-flex justify-content-center align-items-center" @click="colorOpen = !colorOpen"><i class="material-icons">format_color_text</i></button>
+      <button 
+        class="modify_btn d-flex justify-content-center align-items-center position-relative" 
+        @click="scaleOpen = !scaleOpen"
+        :class="{'active' : scaleOpen}"
+      >
+        <i class="material-icons">text_fields</i>
+        <input 
+          v-if="scaleOpen" 
+          type="range" 
+          class="custom-range position-absolute font_scale_input" 
+          min="1" 
+          max="5" 
+          step="0.001"
+          v-model.number='textScale'
+        >
+      </button>
+      <button class="modify_btn d-flex justify-content-center align-items-center" @click='inputOpen = !inputOpen'><i class="material-icons">edit</i></button>
+      <button class="modify_btn d-flex justify-content-center align-items-center" @click="selectPostion('left')"><i class="material-icons">format_align_left</i></button>
+      <button class="modify_btn d-flex justify-content-center align-items-center" @click="selectPostion('center')"><i class="material-icons">format_align_center</i></button>
+      <button class="modify_btn d-flex justify-content-center align-items-center" @click="selectPostion('right')"><i class="material-icons">format_align_right</i></button>
+    </div>
+
+    <!-- 更新文字 -->
+    <transition name="maxHeight100" mode="out-in" appear>
+      <div class="modify_text border-top" v-show="inputOpen">
+        <div class="d-flex align-items-center align-items-stretch m-2">
+          <input type="text" class="flex-fill form-control" placeholder="type new text...." v-model="inputEdit">
+          <button class="modify_text_btn border-0 font_12 d-flex justify-content-center align-items-center p-0" @click="inputChange"><i class="material-icons">done</i></button>
+        </div>
+      </div>
+    </transition>
+
+    <div class="edit_box">
+      <div class="edit_area_father">
+        <div 
+          class="edit_area d-flex align-items-center w-100 h-100" 
+          :class="stylePostion"
+        >
+          <div class="edit_text_area font_14 text-nowrap" :style="fontScale">{{inputText}}</div>
+        </div>
+      </div>
+    </div>
+   
+    <!-- submit -->
+    <div class="options d-flex justify-content-center align-items-center">
+      <button 
+        class="options_btn border-0 font_12 text-capitalize d-flex align-items-center"
+        @click="cancel"
+      >
+        cancel
+      </button>
+      <button 
+        class="options_btn border-0 font_12 text-capitalize d-flex align-items-center ml-3"
+        @click.self="submit"
+      >
+        submit
+      </button>
+    </div>
+  </div>
+
+  <!-- vue-color area -->
+  <div class="vue_color_box position-fixed d-flex justify-content-center align-items-center" v-if="colorOpen" @click.self="colorOpen = false">
+    <chrome-picker v-model="textColor"/>
+  </div>  
+</div>

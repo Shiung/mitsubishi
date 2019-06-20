@@ -1,0 +1,14 @@
+@import "../../assets/scss/customer/utilty";
+.textContentItem{
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  &:hover {
+    box-shadow: 0px 0px 5px $color-cus-darkgray;
+    .options{
+      opacity: 1;
+    }
+  }
+  .text_area{
+  }
+}

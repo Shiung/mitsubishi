@@ -1,0 +1,23 @@
+<div 
+  class="textContentItem w-100 h-100 d-flex align-items-center"
+  :class="stylePostion"
+  @click.self="showEdit = true"
+>
+  <span class="text_area font_14 text-nowrap"  @click.self="showEdit = true" :style="fontScale">{{inputText}}</span>
+
+  <!-- 編輯視窗 -->
+  <transition name="page" mode="out-in" appear>
+    <textEdit 
+      v-if="showEdit && optionStatus" 
+      :textProp="inputText" 
+      :postionProp="textPosition"
+      :scaleProp="textScale"
+      :colorProp="fontColor"
+      :weightProp="fontWeight"
+      :widthHeightRatio="whRatio"
+      :standardWidthProp="standardWidth"
+      @closeHandler="showEdit = false"
+      @updateHandler="updateText"
+    />
+  </transition>
+</div>
