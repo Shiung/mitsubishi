@@ -5,6 +5,10 @@ export default {
     layerObj: {
       type: Object,
       required: true
+    },
+    optionUse: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -16,7 +20,8 @@ export default {
     }
   },
   components: {
-    canvasBox: () => import('@/components/CanvasItem')
+    canvasBox: () => import('@/components/CanvasItem'),
+    textBox: () => import('@/components/TextContentItem')
   },
   methods: {
     init () {

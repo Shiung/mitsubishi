@@ -1,6 +1,6 @@
 <div class="layerItem w-100 h-100">
   <div class="canvas_container position-relative shadow-sm">
-    <div class="layer position-absolute bg-white" 
+    <div class="layer position-absolute" 
          v-for="(item, key) in layerObj.layers" 
          :key="key"
          :data-x='item.x'
@@ -8,7 +8,23 @@
          :data-width='item.w'
          :data-height='item.h'
     >
-      <canvasBox v-if="opened" :optionStatus="true" :ratio="ratioAll" :img="item.img"/>
+      <canvasBox 
+        v-if="opened && item.type === 'img'" 
+        :optionStatus="optionUse" 
+        :ratio="ratioAll" 
+        :img="item.img"
+      />
+      
+      <textBox 
+        v-if="opened && item.type === 'text'" 
+        :optionStatus="optionUse" 
+        :text="item.textVal" 
+        :position="item.position"
+        :weight="item.weight"
+        :scale="item.scale"
+        :color="item.color"
+        :standardWidth="item.w"
+      />
     </div>
   </div>
 </div>

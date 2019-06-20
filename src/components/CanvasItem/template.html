@@ -3,7 +3,7 @@
   <canvas class="myCanvas" ><span class="text-danger">Your browser does not support the HTML5 canvas tag</span></canvas>
 
   <!-- 沒有圖片 -->
-  <div class="noImg d-flex justify-content-center align-items-center" v-if="Object.keys(imgSrc).length === 0">
+  <div class="noImg d-flex justify-content-center align-items-center" v-if="optionStatus &&Object.keys(imgSrc).length === 0">
     <button 
       class="uploadImg border-0 font_14 text-capitalize d-flex align-items-center shadow"
       @click="openImgBox"
@@ -55,7 +55,7 @@
   <!-- 圖片選擇 -->
   <transition name="page" mode="out-in" appear>
     <imgGroupBox 
-      v-if="photoOpen"
+      v-if="photoOpen && optionStatus"
       @closeHandler='closePhotoBox'
       @imgSetHandler='imgReset'
     /> 
