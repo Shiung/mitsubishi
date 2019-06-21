@@ -66,6 +66,16 @@ export default {
     },
     textRatio () {
       return this.$el.clientWidth
+    },
+    // 監聽如果文字參數有異動 與 watch 並用
+    textObjectChange () {
+      let obj = {}
+      this.inputText !== this.text && (obj.textChange = this.inputText)
+      this.textPosition !== this.position && (obj.positionChange = this.textPosition)
+      this.textScale !== this.scale && (obj.scaleChange = this.textScale)
+      this.fontWeight !== this.weight && (obj.weightChange = this.fontWeight)
+      this.fontColor !== this.color && (obj.colorChange = this.fontColor)
+      return obj
     }
   },
   components: {
@@ -105,6 +115,11 @@ export default {
   beforeDestroy () {
     // 清除 監聽事件
     window.removeEventListener('resize', this.resizeHandler)
+  },
+  watch: {
+    textObjectChange (val) {
+      console.log(val)
+    }
   }
 }
 </script>
