@@ -83,7 +83,7 @@ export default {
       window.addEventListener('resize', this.resizeHandler)
     },
     resizeHandler (e) {
-      if (window.innerWidth < 992) this.fontSize()
+      this.fontSize()
     },
     fontSize () {
       let editShowArea = this.$el.querySelector('.edit_area_father')
