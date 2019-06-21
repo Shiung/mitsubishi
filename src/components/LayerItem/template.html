@@ -12,6 +12,9 @@
         v-if="opened && item.type === 'img'" 
         :optionStatus="optionUse" 
         :ratio="ratioAll" 
+        :imgScaleProp="item.scale"
+        :imgTranslateProp="item.translate"
+        :imgRotateProp="item.rotate"
         :img="item.img"
       />
       

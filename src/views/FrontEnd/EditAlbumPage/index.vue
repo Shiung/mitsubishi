@@ -17,14 +17,14 @@ export default {
             h: 282.5,
             type: 'img',
             img: {
-              src: 'https://www.tgilive.com/image/frontend/banner/A8BN-01.jpg',
-              translate: {
-                x: 0.32727272727272655, // 0,
-                y: 0.06862745098039225 // -0.26143790849673193
-              },
-              rotate: 45
-              // scale: 2.07025
-            }
+              src: 'https://www.tgilive.com/image/frontend/banner/A8BN-01.jpg'
+            },
+            translate: {
+              x: 0.32727272727272655, // 0,
+              y: 0.06862745098039225 // -0.26143790849673193
+            },
+            rotate: 15,
+            scale: 1.07025
           },
           {
             x: 426,
@@ -44,7 +44,13 @@ export default {
             type: 'img',
             img: {
               src: 'https://www.tgilive.com/image/frontend/banner/C2BN-02.jpg'
-            }
+            },
+            translate: {
+              x: 0.01910112359550554, // 0,
+              y: -0.004608294930875619 // -0.26143790849673193
+            },
+            // rotate: 15,
+            scale: 2.08124
           },
           {
             x: 10,

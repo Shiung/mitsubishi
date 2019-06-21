@@ -10,6 +10,20 @@ export default {
         return {}
       }
     },
+    imgScaleProp: {
+      type: Number,
+      default: null
+    },
+    imgTranslateProp: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    },
+    imgRotateProp: {
+      type: Number,
+      default: null
+    },
     // 功能是否要開啟
     optionStatus: {
       type: Boolean,
@@ -33,12 +47,12 @@ export default {
       // img config-------
       imgSrc: Object.assign({}, this.img), // 記憶體圖片obj , defeult props 資料
       imgDom: null,
-      imgScale: this.img.scale ? this.img.scale : 1, // 縮放比例
+      imgScale: this.imgScaleProp ? this.imgScaleProp : 1, // 縮放比例
       imgHeightRatio: 1, // 圖片寬高比
       imgRatio: 1, // 圖片與畫布尺寸比
       imgObj: {}, // 圖片物件 --> 偵測滑鼠事件用
-      imgTranslate: this.img.translate ? new Vector({ x: this.img.translate.x, y: this.img.translate.y }) : new Vector({ x: 0, y: 0 }), // 圖片位移向量
-      imgRotate: this.img.rotate ? this.img.rotate : 0, // 圖片旋轉(角度)
+      imgTranslate: Object.keys(this.imgTranslateProp).length !== 0 ? new Vector({ x: this.imgTranslateProp.x, y: this.imgTranslateProp.y }) : new Vector({ x: 0, y: 0 }), // 圖片位移向量
+      imgRotate: this.imgRotateProp ? this.imgRotateProp : 0, // 圖片旋轉(角度)
       // img config------- end
       // 滑鼠位置 ---------
       mousePos: { x: 0, y: 0 }, // 滑鼠位置向量
