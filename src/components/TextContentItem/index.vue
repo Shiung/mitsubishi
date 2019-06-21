@@ -77,10 +77,10 @@ export default {
       this.whRatio = this.$el.clientHeight / this.$el.clientWidth
       // 文字比例
       this.standardWidthRatio = this.$el.clientWidth / this.standardWidth
-      let vm = this
-      window.addEventListener('resize', function () {
-        vm.standardWidthRatio = vm.$el.clientWidth / vm.standardWidth
-      })
+      window.addEventListener('resize', this.resizeHandler)
+    },
+    resizeHandler (e) {
+      this.standardWidthRatio = this.$el.clientWidth / this.standardWidth
     },
     selectPostion (pos) {
       this.textPosition = pos
@@ -101,6 +101,10 @@ export default {
   },
   mounted () {
     this.init()
+  },
+  beforeDestroy () {
+    // 清除 監聽事件
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }
 </script>

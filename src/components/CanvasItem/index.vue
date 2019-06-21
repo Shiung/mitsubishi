@@ -31,7 +31,7 @@ export default {
       canvasHeight: 0,
       // canvas config---- end
       // img config-------
-      imgSrc: this.img, // 記憶體圖片obj , defeult props 資料
+      imgSrc: Object.assign({}, this.img), // 記憶體圖片obj , defeult props 資料
       imgDom: null,
       imgScale: this.img.scale ? this.img.scale : 1, // 縮放比例
       imgHeightRatio: 1, // 圖片寬高比
@@ -73,17 +73,17 @@ export default {
       this.canvasBoxDom = this.$el
       this.ctx = this.canvasDom.getContext('2d')
       // 視窗 resize
-      let vm = this
-      window.addEventListener('resize', function () {
-        vm.resizeCanvas()
-      })
-      vm.resizeCanvas()
+      window.addEventListener('resize', this.resizeHandler)
+      this.resizeCanvas()
       // 如果功能prop 為false 結束
       if (!this.optionStatus) return
       // 取得滑鼠監聽事件 (pc || mobile)
       if (this.deviceMobileStatus) {
-        vm.touchAddEventListener()
-      } else vm.mouseAddEventListener()
+        this.touchAddEventListener()
+      } else this.mouseAddEventListener()
+    },
+    resizeHandler (e) {
+      this.resizeCanvas()
     },
     // 滑鼠事件(電腦) --------------------------------------------
     mouseAddEventListener () {
@@ -339,6 +339,10 @@ export default {
       }
     }
     // 功能 ----------------- end
+  },
+  beforeDestroy () {
+    // 清除 監聽事件
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }
 </script>

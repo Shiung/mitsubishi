@@ -80,10 +80,10 @@ export default {
       // 初始設定
       this.editAreaSize()
       this.fontSize()
-      let vm = this
-      window.addEventListener('resize', function (e) {
-        if (this.innerWidth < 992) vm.fontSize()
-      })
+      window.addEventListener('resize', this.resizeHandler)
+    },
+    resizeHandler (e) {
+      if (window.innerWidth < 992) this.fontSize()
     },
     fontSize () {
       let editShowArea = this.$el.querySelector('.edit_area_father')
@@ -122,6 +122,10 @@ export default {
     inputOpen (val) {
       if (!val) this.inputEdit = null
     }
+  },
+  beforeDestroy () {
+    // 清除 監聽事件
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }
 </script>

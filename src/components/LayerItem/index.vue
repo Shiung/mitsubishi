@@ -29,6 +29,9 @@ export default {
       this.getlayerBoxParams()
       this.layerPos()
     },
+    resizeHandler (e) {
+      this.init()
+    },
     getlayerBoxParams () {
       let layerBox = this.$el // document.querySelector('.layerItem')
       this.width = layerBox.clientWidth // 版面寬度
@@ -59,12 +62,12 @@ export default {
   },
   mounted () {
     this.init()
-    let vm = this
-    window.addEventListener('resize', function (e) {
-      vm.init()
-    })
-    console.log('layer init')
+    window.addEventListener('resize', this.resizeHandler)
     this.opened = true
+  },
+  beforeDestroy () {
+    // 清除 監聽事件
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }
 </script>
