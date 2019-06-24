@@ -8,11 +8,11 @@ export default {
     },
     imgLoading: {
       type: String,
-      default: '/img/image_Loading.png'
+      default: `${process.env.BASE_URL}img/image_Loading.png`
     },
     imgError: {
       type: String,
-      default: '/img/image_error.png'
+      default: `${process.env.BASE_URL}img/image_error.png`
     }
   }
 }
