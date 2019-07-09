@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import albumChangeStore from './storeModule/albumChangeStore'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -19,6 +21,9 @@ export default new Vuex.Store({
   },
   getters: {
     deviceMobileStatus: state => state.deviceCheck
+  },
+  modules: {
+    albumChangeStore
   }
 })
 
