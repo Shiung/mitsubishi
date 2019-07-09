@@ -2,6 +2,10 @@
 export default {
   name: 'textContentItem',
   props: {
+    idProp: {
+      type: String,
+      required: true
+    },
     text: {
       type: String,
       default: null
@@ -118,7 +122,12 @@ export default {
   },
   watch: {
     textObjectChange (val) {
-      console.log(val)
+      let data = {
+        id: this.idProp,
+        ...val
+      }
+      if (Object.keys(val).length === 0) this.$emit('dataDeleteStore', data) // this.delete_data(data)
+      else this.$emit('dataChangeStore', data)
     }
   }
 }
