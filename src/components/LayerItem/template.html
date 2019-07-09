@@ -10,23 +10,29 @@
     >
       <canvasBox 
         v-if="opened && item.type === 'img'" 
+        :idProp="item.id"
         :optionStatus="optionUse" 
         :ratio="ratioAll" 
         :imgScaleProp="item.scale"
         :imgTranslateProp="item.translate"
         :imgRotateProp="item.rotate"
         :img="item.img"
+        @dataChangeStore="dataVuex"
+        @dataDeleteStore='dataDeleteVuex'
       />
       
       <textBox 
         v-if="opened && item.type === 'text'" 
         :optionStatus="optionUse" 
+        :idProp="item.id"
         :text="item.textVal" 
         :position="item.position"
         :weight="item.weight"
         :scale="item.scale"
         :color="item.color"
         :standardWidth="item.w"
+        @dataChangeStore="dataVuex"
+        @dataDeleteStore='dataDeleteVuex'
       />
     </div>
   </div>

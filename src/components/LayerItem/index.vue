@@ -1,4 +1,5 @@
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'layerItem',
   props: {
@@ -23,7 +24,13 @@ export default {
     canvasBox: () => import('@/components/CanvasItem'),
     textBox: () => import('@/components/TextContentItem')
   },
+  computed: {
+    // vuex
+    ...mapGetters('albumChangeStore', ['changeData'])
+  },
   methods: {
+    // vuex
+    ...mapActions('albumChangeStore', ['update_data', 'delete_data']),
     init () {
       // layout 位置尺寸
       this.getlayerBoxParams()
@@ -58,6 +65,15 @@ export default {
         item.style.width = `${width * ratio}px`
         item.style.height = `${height * ratio}px`
       })
+    },
+    // vuex 儲存是否有編輯
+    dataVuex (val) {
+      // console.log('更新', val)
+      this.update_data(val)
+    },
+    dataDeleteVuex (val) {
+      // console.log('移除', val)
+      this.delete_data(val)
     }
   },
   mounted () {
