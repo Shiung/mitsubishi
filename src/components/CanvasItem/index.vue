@@ -4,6 +4,10 @@ import Vector from '@/assets/js/vectorClass.js'
 export default {
   name: 'canvasItem',
   props: {
+    idProp: {
+      type: String,
+      required: true
+    },
     img: {
       type: Object,
       default: function () {
@@ -75,7 +79,46 @@ export default {
   },
   computed: {
     // vuex
-    ...mapGetters(['deviceMobileStatus'])
+    ...mapGetters(['deviceMobileStatus']),
+    // 監聽如果圖片參數有異動 與 watch 並用
+    imgObjectChange () {
+      let obj = {}
+      // 圖片
+      if (Object.keys(this.img).length !== 0) {
+        // 1. 有圖片props 傳入 且圖片有更換
+        this.imgSrc.src !== this.img.src && (obj.img = this.imgSrc)
+      } else if (Object.keys(this.img).length === 0 && Object.keys(this.imgSrc).length !== 0) {
+        // ２. 沒有有圖片props 傳入 且圖片有更換
+        obj.img = this.imgSrc
+      }
+      // 位移
+      if (Object.keys(this.imgTranslateProp).length !== 0) {
+        // 1. 有傳入 props 位移量 且資料有異動
+        this.imgTranslate.x !== this.imgTranslateProp.x && (obj.translateX = this.imgTranslate.x)
+        this.imgTranslate.y !== this.imgTranslateProp.y && (obj.translateY = this.imgTranslate.y)
+      } else if (Object.keys(this.imgTranslateProp).length === 0 && Object.keys(this.imgTranslate).length !== 0) {
+        // 2. 沒有傳入 props 位移量 且資料有異動
+        obj.translateX = this.imgTranslate.x
+        obj.translateY = this.imgTranslate.y
+      }
+      // 放大縮小
+      if (this.imgScaleProp !== null) {
+        // 1. 有傳入 props 位移量 且資料有異動
+        this.imgScale !== this.imgScaleProp && (obj.scale = this.imgScale)
+      } else {
+        // 2. 沒有傳入 props 位移量 且資料有異動
+        obj.scale = this.imgScale
+      }
+      // 旋轉
+      if (this.imgRotateProp !== null) {
+        // 1. 有傳入 props 位移量 且資料有異動
+        this.imgRotate !== this.imgRotateProp && (obj.rotate = this.imgRotate)
+      } else {
+        // 2. 沒有傳入 props 位移量 且資料有異動
+        obj.rotate = this.imgRotate
+      }
+      return obj
+    }
   },
   components: {
     imgGroupBox: () => import('@/components/ImgGroupItem')
@@ -312,7 +355,8 @@ export default {
       // 移除舊的圖片 讓canvas 判斷是否要重新 load 圖檔
       this.imgDom = null
       // 更換新的圖片src
-      this.imgSrc.src = src
+      // this.imgSrc.src = src
+      this.imgSrc = { src: src }
       // 定位重新定義
       this.imgTranslate.set(0, 0) // 移動位置重設(0, 0)
       this.imgScale = 1 // 重設放大為1
@@ -351,8 +395,17 @@ export default {
         this.rotateOption = false
         this.zoomOption = false
       }
-    }
+    },
     // 功能 ----------------- end
+    // 圖片設定有異動
+    imgObjectChange (val) {
+      let data = {
+        id: this.idProp,
+        ...val
+      }
+      if (Object.keys(val).length === 0) this.$emit('dataDeleteStore', data)
+      else this.$emit('dataChangeStore', data)
+    }
   },
   beforeDestroy () {
     // 清除 監聽事件
