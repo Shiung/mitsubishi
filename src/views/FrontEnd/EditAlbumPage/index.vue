@@ -88,7 +88,6 @@ export default {
     },
     // 畫面離開提示
     leavePage (e) {
-      console.log(e)
       let dialogText = 'data not save'
       e.returnValue = dialogText
       return dialogText
@@ -99,11 +98,6 @@ export default {
   },
   mounted () {
     this.initPage()
-    // window.onbeforeunload = function (e) {
-    //   var dialogText = 'Dialog text here'
-    //   e.returnValue = dialogText
-    //   return dialogText
-    // }
   },
   watch: {
     changeData (val) {
