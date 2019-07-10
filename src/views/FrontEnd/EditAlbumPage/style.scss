@@ -100,7 +100,12 @@
     }
   }
   .editOption{
-    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $navHeight;
+    // height: 40px;
     background-color: #fff;
     .options_btn{
       border-radius: 20px;
