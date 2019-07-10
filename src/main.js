@@ -52,7 +52,7 @@ router.beforeEach((to, from, next) => {
   let vm = router.app
   // 有暫存相簿修改內容
   if (from.meta.dataChangeCheck) {
-    if (store.getters['albumChangeStore/changeData'].length !== 0) {
+    if (store.state.albumChangeStore.changeData.length !== 0) {
       vm.$snotify.error(`相簿有異動請先儲存或是取消設定`, {
         position: SnotifyPosition.centerCenter,
         showProgressBar: true,
