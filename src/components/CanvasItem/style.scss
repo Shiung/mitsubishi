@@ -26,6 +26,10 @@
     background-size: 10px 10px;
     background-position: left top;
     background-repeat: repeat;
+    &.noBg {
+      background-color : transparent;
+      background-image: none;
+    }
   }
   .options{
     opacity: 0;

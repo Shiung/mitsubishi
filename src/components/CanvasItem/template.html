@@ -1,6 +1,6 @@
 <div class="canvasItem w-100 h-100" @mouseover="optionsTrigger = true" @mouseleave="optionsTrigger = false">
   <!-- 這裡是canvas -->
-  <canvas class="myCanvas" ><span class="text-danger">Your browser does not support the HTML5 canvas tag</span></canvas>
+  <canvas class="myCanvas" :class="{'noBg': !bgUse}"><span class="text-danger">Your browser does not support the HTML5 canvas tag</span></canvas>
 
   <!-- 沒有圖片 -->
   <div class="noImg d-flex justify-content-center align-items-center" v-if="optionStatus &&Object.keys(imgSrc).length === 0">

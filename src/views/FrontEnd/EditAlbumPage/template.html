@@ -9,7 +9,7 @@
               <div class="navblock d-flex justify-content-center align-items-end">
                 <div class="page_info w-75 mb-2 text-center font_12 shadow-sm">page {{key+1}}</div>
               </div>
-              <layerBox :layerObj="item" :optionUse='false' />
+              <layerBox :layerObj="item" :optionUse='false' :backGroundUse="false"/>
             </div>
             <div v-for="item in 22" @click="page(item.toString())" :class="{'active' : pageSelect === item.toString()}">
               <!-- {{item}} -->

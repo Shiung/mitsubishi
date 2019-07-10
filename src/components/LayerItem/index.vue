@@ -10,6 +10,10 @@ export default {
     optionUse: {
       type: Boolean,
       default: true
+    },
+    backGroundUse: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

@@ -37,6 +37,11 @@ export default {
     ratio: {
       type: Number,
       required: true
+    },
+    // 是否要有背景網線
+    bgUse: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
