@@ -18,8 +18,33 @@
         -webkit-overflow-scrolling: touch; // 讓手機版左右滑動更滑順
         >div{
           width: 100%;
-          height: 100px;
-          background-color: #ccc;
+          // height: 100px;
+          height: auto;
+          min-height: 70px;
+          box-sizing: border-box;
+          // background-color: #ccc;
+          transition: .5s;
+          position: relative;
+          border: 1px solid #eee;
+          &.active {
+            // background-color: #888;
+            // color:#fff;
+            .navblock{
+              background-color: rgba($color-cus-titleBlus, .6);
+              color:#fff;
+            }
+          }
+          .navblock{
+            transition: .5s;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            .page_info{
+              background-color: #fff;
+              color:$color-cus-darkgray2;
+            }
+          }
         }
         >div:not(:last-child){
           margin-bottom:15px;
@@ -39,6 +64,11 @@
           background-color: #eee;
         }
       }
+      >.right{
+        .no-album {
+          min-height: 300px;
+        }
+      }
     }
     @media screen and (max-width: 767px) {
       .innerContent{
@@ -48,6 +78,7 @@
         >.left{
           position: static;
           // height: 100px;
+          height:auto;
           width: 100%;
           overflow-y: hidden;
           display: flex;
@@ -55,8 +86,7 @@
           > div {
             margin-bottom:0px !important;
             width: 100px;
-            height: 100px;
-            background-color: #ccc;
+            // height: 100px;
             flex: 100px;
             flex-grow: 0;
             flex-shrink: 0;

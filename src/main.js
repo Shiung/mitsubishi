@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 
 import 'bootstrap'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 // loading
 import Loading from 'vue-loading-overlay'
 // vue image loading
@@ -14,6 +16,9 @@ import Snotify, { SnotifyPosition } from 'vue-snotify'
 import vue2Dropzone from 'vue2-dropzone'
 
 Vue.config.productionTip = false
+
+Vue.use(VueAxios, axios)
+axios.defaults.headers.common['Accept'] = 'application/json'
 
 // loading
 Vue.component('loading', Loading) // 全域使用
@@ -41,3 +46,27 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+// 導航守衛 ==> 要在router 變動下才會觸發
+router.beforeEach((to, from, next) => {
+  let vm = router.app
+  // 有暫存相簿修改內容
+  if (from.meta.dataChangeCheck) {
+    if (store.getters['albumChangeStore/changeData'].length !== 0) {
+      vm.$snotify.error(`相簿有異動請先儲存或是取消設定`, {
+        position: SnotifyPosition.centerCenter,
+        showProgressBar: true,
+        pauseOnHover: false,
+        closeOnClick: true
+      })
+      next(false)
+    } else next()
+  } else {
+    next()
+  }
+})
+
+// 跳轉頁面後返回頂部
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0)
+})
