@@ -34,6 +34,7 @@ export default {
     },
     editAlbumsGo (id) {
       console.log(`編輯 ${id}`)
+      this.$router.push({ name: 'editAlbumPage', params: { id: id } })
     },
     previewGo (id) {
       console.log(`預覽 ${id}`)

@@ -44,7 +44,6 @@ export default {
     },
     editAlbums () {
       this.$emit('editHandler', this.ID)
-      // this.$router.push({ name: 'editAlbumPage' })
     },
     printAndPurchase () {
       this.$emit('printAndPurchaseHandler', this.ID)

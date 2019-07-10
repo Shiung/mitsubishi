@@ -20,7 +20,7 @@ export default new Router({
           component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/AlbumsPage')
         },
         {
-          path: 'editAlbumPage',
+          path: 'editAlbumPage/:id',
           name: 'editAlbumPage',
           meta: { dataChangeCheck: true },
           component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/EditAlbumPage')
