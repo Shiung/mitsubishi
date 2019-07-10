@@ -12,5 +12,16 @@ module.exports = {
         data: `@import "~@/assets/scss/customer/utilty";`
       }
     }
+  },
+  devServer: {
+    proxy: {
+      '/apiPathProxy':{
+        target : 'http://localhost:3004/', // 測試機
+        changeOrigin: true,
+        pathRewrite: {
+          '^/apiPathProxy': ''
+        }
+      }
+    }
   }
 }
