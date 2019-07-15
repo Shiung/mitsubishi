@@ -9,6 +9,11 @@ export default {
   components: {
     navItem: () => import('@/components/NavBack'),
     sideBarItem: () => import('@/components/SideBarBack')
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log(to)
+    console.log(from)
+    next()
   }
 }
 </script>

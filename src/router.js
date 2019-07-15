@@ -34,13 +34,28 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      redirect: '/admin',
+      redirect: '/admin/member',
       component: () => import(/* webpackChunkName: "BackEnd" */ './views/BackEnd/IndexPage'),
       children: [
         {
-          path: '',
+          path: 'member',
+          name: 'memAdmin',
+          component: () => import(/* webpackChunkName: "MemberPage" */ '@/views/BackEnd/MemberPage')
+        },
+        {
+          path: 'albums',
           name: 'albumsAdmin',
-          component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/BackEnd/AlbumsPage')
+          component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/BackEnd/AlbumsPage')
+        },
+        {
+          path: 'orders',
+          name: 'ordersAdmin',
+          component: () => import(/* webpackChunkName: "OrderPage" */ '@/views/BackEnd/OrderPage')
+        },
+        {
+          path: 'Adminstrators',
+          name: 'AdminstratorAdmin',
+          component: () => import(/* webpackChunkName: "AdminstratorPage" */ '@/views/BackEnd/AdminstratorPage')
         }
       ]
     },

@@ -34,7 +34,8 @@
   }
   .sideNav{
     color: #fff;
-    &.active{
+    &.active,
+    &.router-link-active{
       background-color: $color-cus-blue;
     }
   }

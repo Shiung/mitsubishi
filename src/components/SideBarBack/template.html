@@ -7,8 +7,8 @@
     </div>
   </div>
 
-  <a href="javascript:;" class="nav-link sideNav text-capitalize font_14 py-3">member</a>
-  <a href="javascript:;" class="nav-link sideNav text-capitalize font_14 py-3 active">albums</a>
-  <a href="javascript:;" class="nav-link sideNav text-capitalize font_14 py-3">order</a>
-  <a href="javascript:;" class="nav-link sideNav text-capitalize font_14 py-3">adminstrator</a>
+  <router-link class="nav-link sideNav text-capitalize font_14 py-3" :to="{name : 'memAdmin' }">member</router-link>
+  <router-link class="nav-link sideNav text-capitalize font_14 py-3" :to="{name : 'albumsAdmin' }">albums</router-link>
+  <router-link class="nav-link sideNav text-capitalize font_14 py-3" :to="{name : 'ordersAdmin' }">order</router-link>
+  <router-link class="nav-link sideNav text-capitalize font_14 py-3" :to="{name : 'AdminstratorAdmin' }">adminstrator</router-link>
 </nav>
