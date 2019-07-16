@@ -1,5 +1,5 @@
 <div class="indexPage">
-  <navItem/>
+  <navItem :titleProps='titleName'/>
   <!-- IndexPage 後台 -->
   <div class="container_fix">
     <div class="row d-flex">
@@ -9,7 +9,9 @@
       
       <div class='page_area'>
         <div class="container-fluid pr-0 pt-4">
-          <router-view class="page_area_zone"></router-view>
+          <transition name="fade" mode="out-in" appear>
+            <router-view class="page_area_zone"></router-view>
+          </transition>
         </div>
       </div>
     </div>

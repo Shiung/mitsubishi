@@ -8,7 +8,9 @@
   </div>
   <div class="w-100 main_box d-flex justify-content-center align-items-center">
     <div class="bg_img">
-      <p class="title h-100 text-uppercase text-white font-weight-bold font_20 d-flex justify-content-center align-items-center">Album Setting</p>
+      <transition name="scale" mode="out-in" appear> 
+        <p class="title h-100 text-uppercase text-white font-weight-bold font_20 d-flex justify-content-center align-items-center" v-if="showTitle">{{titleProps}}</p>
+      </transition>
     </div>
   </div>
 </nav>

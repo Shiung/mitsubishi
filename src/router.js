@@ -43,6 +43,11 @@ export default new Router({
           component: () => import(/* webpackChunkName: "MemberPage" */ '@/views/BackEnd/MemberPage')
         },
         {
+          path: 'member/:id',
+          name: 'memEditAdmin',
+          component: () => import(/* webpackChunkName: "MemberEditPage" */ '@/views/BackEnd/MemberEditPage')
+        },
+        {
           path: 'albums',
           name: 'albumsAdmin',
           component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/BackEnd/AlbumsPage')

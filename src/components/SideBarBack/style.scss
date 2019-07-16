@@ -34,9 +34,13 @@
   }
   .sideNav{
     color: #fff;
+    transition: .5s;
     &.active,
     &.router-link-active{
       background-color: $color-cus-blue;
+    }
+    &:hover:not(.router-link-active){
+      background-color: lighten($color-cus-blue, 15%);
     }
   }
 }
