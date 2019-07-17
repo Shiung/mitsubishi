@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import albumChangeStore from './storeModule/albumChangeStore'
+// 後台
+import memberTableStore from './storeModule/admin/memberTableStore'
 
 Vue.use(Vuex)
 
@@ -23,7 +25,8 @@ export default new Vuex.Store({
     deviceMobileStatus: state => state.deviceCheck
   },
   modules: {
-    albumChangeStore
+    albumChangeStore,
+    memberTableStore
   }
 })
 
