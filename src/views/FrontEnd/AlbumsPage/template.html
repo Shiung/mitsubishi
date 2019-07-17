@@ -46,4 +46,15 @@
       </div> 
     </div>
   </div>
+
+  <dialogBox
+    v-if="dialogStatus" 
+    :idProps="dialogID"
+    :typeProps="dialogType"
+    :titleProps="dialogTitle" 
+    :subTitleProps="dialogSubTitle" 
+    :describeProps="dialogDescibe"
+    @confrimEmit="confirmHandler"
+    @cancelEmit="closeDialogBox"
+  /> 
 </div>
