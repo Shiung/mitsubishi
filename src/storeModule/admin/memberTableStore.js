@@ -119,9 +119,3 @@ export default {
     trashStatus: state => state.trashStatus
   }
 }
-
-
-function getCookie () {
-  let key = 'hs_token'
-  return localStorage[key] ? localStorage[key] : null
-}
