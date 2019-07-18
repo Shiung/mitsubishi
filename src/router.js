@@ -16,14 +16,19 @@ export default new Router({
       children: [
         {
           path: '',
-          name: 'IndexPage',
-          component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/AlbumsPage')
+          name: 'AlbumsPage',
+          component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/FrontEnd/AlbumsPage')
+        },
+        {
+          path: 'createAlbum',
+          name: 'createAlbumPage',
+          component: () => import(/* webpackChunkName: "CreateAlbumPage" */ '@/views/FrontEnd/CreateAlbumPage')
         },
         {
           path: 'editAlbumPage/:id',
           name: 'editAlbumPage',
           meta: { dataChangeCheck: true },
-          component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/EditAlbumPage')
+          component: () => import(/* webpackChunkName: "EditAlbumPage" */ '@/views/FrontEnd/EditAlbumPage')
         },
         {
           path: 'signup',
