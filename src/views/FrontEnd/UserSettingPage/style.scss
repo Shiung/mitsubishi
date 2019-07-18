@@ -1,0 +1,27 @@
+.userSettingPage{
+  color: $color-cus-darkgray2;
+  input{
+    box-shadow: none;
+    &::placeholder{
+      color: lighten($color-cus-darkgray2, 30%);
+    }
+  }
+  .box{
+    width: 250px;
+  }
+  .option{
+    margin-top: 100px;
+    >button{
+      background-color: $color-cus-green;
+      border-radius: 20px;
+      padding: 2px 25px;
+      color: #fff; 
+      &[data-type=cancel]{
+        background-color: $color-cus-darkgray;
+      }
+      &:hover{
+        filter: brightness(110%);
+      }
+    }
+  }
+}

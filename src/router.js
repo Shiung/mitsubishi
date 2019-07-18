@@ -24,6 +24,16 @@ export default new Router({
           name: 'editAlbumPage',
           meta: { dataChangeCheck: true },
           component: () => import(/* webpackChunkName: "IndexPage" */ '@/views/FrontEnd/EditAlbumPage')
+        },
+        {
+          path: 'signup',
+          name: 'signupPage',
+          component: () => import(/* webpackChunkName: "SignupPage" */ '@/views/FrontEnd/SignupPage')
+        },
+        {
+          path: 'userSetting',
+          name: 'userSettingPage',
+          component: () => import(/* webpackChunkName: "UserSettingPage" */ '@/views/FrontEnd/UserSettingPage')
         }
       ]
     },
