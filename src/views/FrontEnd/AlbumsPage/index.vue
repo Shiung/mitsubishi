@@ -14,7 +14,6 @@ export default {
     }
   },
   components: {
-    titleItem: () => import('@/components/TitleItem'),
     albumsItem: () => import('@/components/AlbumsItem'),
     dialogBox: () => import('@/components/DialogBoxItem')
   },

@@ -1,5 +1,9 @@
 <div class="titleItem d-flex justify-content-center align-items-center">
   <div class="bg_img">
-    <div class="title text-uppercase text-white font-weight-bold font_20 d-flex justify-content-center align-items-center">{{title}}</div>
+    <div class="title text-uppercase text-white font-weight-bold font_20 d-flex justify-content-center align-items-center">
+      <transition name="scale" mode="out-in" appear>
+        <span v-if="showTitle">{{title}}</span>
+      </transition>
+    </div>
   </div>
 </div>

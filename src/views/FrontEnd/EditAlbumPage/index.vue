@@ -15,9 +15,6 @@ export default {
   computed: {
     // vuex
     ...mapGetters('albumChangeStore', ['changeData']),
-    titleHistory () {
-      return 'edit album'
-    },
     pageSelect () {
       return this.$route.query.id || this.albumSelectID
     },
@@ -27,7 +24,6 @@ export default {
     }
   },
   components: {
-    titleItem: () => import('@/components/TitleItem'),
     layerBox: () => import('@/components/LayerItem')
   },
   methods: {

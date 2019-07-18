@@ -6,6 +6,19 @@ export default {
       type: String,
       default: null
     }
+  },
+  data () {
+    return {
+      showTitle: true
+    }
+  },
+  watch: {
+    title (val) {
+      this.showTitle = false
+      this.$nextTick().then(() => {
+        this.showTitle = true
+      })
+    }
   }
 }
 </script>

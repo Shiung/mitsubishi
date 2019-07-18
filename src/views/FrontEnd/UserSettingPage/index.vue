@@ -1,9 +1,6 @@
 <script>
 export default {
-  name: 'userSettingPage',
-  components: {
-    titleItem: () => import('@/components/TitleItem')
-  }
+  name: 'userSettingPage'
 }
 </script>
 

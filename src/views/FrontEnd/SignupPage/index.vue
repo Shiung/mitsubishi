@@ -1,9 +1,6 @@
 <script>
 export default {
-  name: 'signupPage',
-  components: {
-    titleItem: () => import('@/components/TitleItem')
-  }
+  name: 'signupPage'
 }
 </script>
 
