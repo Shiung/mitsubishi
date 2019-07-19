@@ -5,14 +5,15 @@ export default {
   data () {
     return {
       // vue table 2
-      columns: ['id', 'fname', 'lname', 'action'],
+      columns: ['id', 'name', 'email', 'address', 'loginTime'],
       options: {
         headings: {
           edit: '',
           id: '#',
-          fname: 'First Name',
-          lname: 'Last Name',
-          action: 'Action'
+          name: 'Name',
+          email: 'email',
+          address: '地址',
+          loginTime: '最後登入時間'
         },
         columnsClasses: {
           edit: 'width-fix-50',
@@ -58,7 +59,11 @@ export default {
       this.getRequestParams()
       await this.getDatatable()
       this.dataReady = true
-      this.showLoading = false
+      // this.$refs.vueTable2Table.setLimit(this.perPage)
+      this.$nextTick().then(() => {
+        this.$refs.vueTable2Table.setLimit(this.perPage)
+        this.showLoading = false
+      })
     },
     sort (val) {
       console.log(val)

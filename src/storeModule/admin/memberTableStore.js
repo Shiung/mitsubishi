@@ -19,17 +19,39 @@ export default {
   actions: {
     getDatatable (context, params){
       let data = [
-        { id: 1, fname: 'Mark', lname: 'Tot' },
-        { id: 2, fname: 'Mark2', lname: 'Tot2' },
-        { id: 3, fname: 'Mark3', lname: 'Tot3' },
-        { id: 4, fname: 'Mark4', lname: 'Tot4' },
-        { id: 5, fname: 'Mark5', lname: 'Tot5' },
-        { id: 6, fname: 'Mark6', lname: 'Tot6' },
-        { id: 7, fname: 'Mark7', lname: 'Tot7' },
-        { id: 8, fname: 'Mark8', lname: 'Tot8' },
-        { id: 9, fname: 'Mark9', lname: 'Tot9' },
-        { id: 10, fname: 'Mark10', lname: 'Tot10' },
-        { id: 11, fname: 'Mark11', lname: 'Tot11' }
+        { id: 1, name: '入山 杏奈', email: 'peter@emai.com', address: '580-0015 4-23-7 Shindou, Matsubara, Osaka', loginTime: '2019-07-11 14:20:11' },
+        { id: 2, name: '加藤 玲奈', email: 'jack@emai.com', address: '104-0031 Kyobashi MID Bldg., 13-10, Kyobashi 2-chome, Chuo-ku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 3, name: '後藤 萌咲', email: 'syun_wei@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 4, name: '篠崎 彩奈', email: 'marty@emai.com', address: '162-0812 6-17 Nishigoken, Shinjuku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 5, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '106-0031 FUJIFILM Nishiazabu Bldg, 2-26-30 Nishiazabu, Minato, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 6, name: '田口 愛佳', email: 'asahi@emai.com', address: '338-0002 15-7, 3-chome, Shimoochiai, Chuo-ku, Saitama-shi, Saitama', loginTime: '2019-07-11 14:20:11' },
+        { id: 7, name: '入山 杏奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 8, name: '加藤 玲奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 9, name: '後藤 萌咲', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 10, name: '篠崎 彩奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 11, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 1, name: '入山 杏奈', email: 'peter@emai.com', address: '580-0015 4-23-7 Shindou, Matsubara, Osaka', loginTime: '2019-07-11 14:20:11' },
+        { id: 2, name: '加藤 玲奈', email: 'jack@emai.com', address: '104-0031 Kyobashi MID Bldg., 13-10, Kyobashi 2-chome, Chuo-ku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 3, name: '後藤 萌咲', email: 'syun_wei@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 4, name: '篠崎 彩奈', email: 'marty@emai.com', address: '162-0812 6-17 Nishigoken, Shinjuku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 5, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '106-0031 FUJIFILM Nishiazabu Bldg, 2-26-30 Nishiazabu, Minato, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 6, name: '田口 愛佳', email: 'asahi@emai.com', address: '338-0002 15-7, 3-chome, Shimoochiai, Chuo-ku, Saitama-shi, Saitama', loginTime: '2019-07-11 14:20:11' },
+        { id: 7, name: '入山 杏奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 8, name: '加藤 玲奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 9, name: '後藤 萌咲', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 10, name: '篠崎 彩奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 11, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 1, name: '入山 杏奈', email: 'peter@emai.com', address: '580-0015 4-23-7 Shindou, Matsubara, Osaka', loginTime: '2019-07-11 14:20:11' },
+        { id: 2, name: '加藤 玲奈', email: 'jack@emai.com', address: '104-0031 Kyobashi MID Bldg., 13-10, Kyobashi 2-chome, Chuo-ku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 3, name: '後藤 萌咲', email: 'syun_wei@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 4, name: '篠崎 彩奈', email: 'marty@emai.com', address: '162-0812 6-17 Nishigoken, Shinjuku, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 5, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '106-0031 FUJIFILM Nishiazabu Bldg, 2-26-30 Nishiazabu, Minato, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 6, name: '田口 愛佳', email: 'asahi@emai.com', address: '338-0002 15-7, 3-chome, Shimoochiai, Chuo-ku, Saitama-shi, Saitama', loginTime: '2019-07-11 14:20:11' },
+        { id: 7, name: '入山 杏奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 8, name: '加藤 玲奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 9, name: '後藤 萌咲', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 10, name: '篠崎 彩奈', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' },
+        { id: 11, name: '鈴木 くるみ', email: 'mpm@emai.com', address: '153-0051 Risonanakameguro Bldg, 2-16-13 Kamimeguro, Meguro, Tokyo', loginTime: '2019-07-11 14:20:11' }
       ]
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -40,7 +62,7 @@ export default {
           context.commit('TOTALCOUNT', data.length)
           context.commit('TOTALPAGES', 1)
           resolve()
-        },2000)
+        },500)
       })
       // return this._vm.axios.get(`${process.env.VUE_APP_APIPATH}/member`)
       //   .then(res => {
