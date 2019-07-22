@@ -14,8 +14,6 @@ import VueLazyload from 'vue-lazyload'
 import Snotify, { SnotifyPosition } from 'vue-snotify'
 // vue2-dropzone
 import vue2Dropzone from 'vue2-dropzone'
-// vue-table-2
-import { ClientTable } from 'vue-tables-2'
 
 Vue.config.productionTip = false
 
@@ -40,9 +38,6 @@ const options = {
   }
 }
 Vue.use(Snotify, options)
-
-// datatable
-Vue.use(ClientTable, { skin: 'table table-hover' }, false, 'bootstrap4')
 
 // vue2-dropzone
 Vue.component('vueDropzone', vue2Dropzone) // 全域使用
