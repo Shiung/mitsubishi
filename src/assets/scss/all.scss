@@ -76,4 +76,63 @@ button{
   @media (max-width: 1139px){
     max-width: 1080px;
   }
+  .admin_page_box {
+    -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 0px 3px rgba(0, 0, 0, 0.1) !important;
+    background-color: #fff;
+    position: relative;
+  }
+}
+
+
+// table customer (bs4)
+.table_zone{
+  .table_header{
+    background-color: $color-cus-darkgray3;
+    >div{
+      padding: 0.75rem;
+    }
+    .subTitle{
+      color:$color-cus-darkgray4;
+      > i {
+        transition: .5s;
+        transform: rotateZ(90deg);
+        &.sort_up {
+          color: $color-cus-lightblue;
+          transform: rotateZ(-90deg)
+        }
+        &.sort_down {
+          color: $color-cus-lightblue;
+          transform: rotateZ(90deg)
+        }
+      }
+    }
+  }
+  table.table{
+    tbody{
+      tr{
+        color:$color-cus-darkgray4;
+        a{
+          color: $color-cus-green;
+        }
+        td{
+          vertical-align: middle;
+        }
+      }
+      tr:nth-of-type(2n){
+        background: $color-cus-darkgray3;
+      }
+    }
+  }
+}
+// checkbox customer (bs4)
+.checkBox_cus{
+  margin: 10px 0;
+  .custom-control-label{
+    &::before,
+    &::after{
+      left: -1.5rem;
+      box-shadow: none !important;
+    }
+  }
 }
