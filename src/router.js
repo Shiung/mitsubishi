@@ -73,6 +73,11 @@ export default new Router({
           component: () => import(/* webpackChunkName: "OrderPage" */ '@/views/BackEnd/OrderPage')
         },
         {
+          path: 'orders/:id',
+          name: 'orderEditAdmin',
+          component: () => import(/* webpackChunkName: "OrderEditPage" */ '@/views/BackEnd/OrderEditPage')
+        },
+        {
           path: 'Adminstrators',
           name: 'AdminstratorAdmin',
           component: () => import(/* webpackChunkName: "AdminstratorPage" */ '@/views/BackEnd/AdminstratorPage')

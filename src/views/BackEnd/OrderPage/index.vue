@@ -121,7 +121,7 @@
             <td class="font_12" data-column='action'>
               <div class="d-flex align-items-center">
                 <button class="btn d-flex align-items-center p-0"><i class="material-icons font_18">visibility</i></button>
-                <button class="btn d-flex align-items-center p-0 ml-2">
+                <button class="btn d-flex align-items-center p-0 ml-2" @click="$router.push({name: 'orderEditAdmin', params: {id: item}})">
                   <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
                     <path fill="#666" fill-rule="evenodd" d="M11.779 13.444l-.387.387a.481.481 0 0 1-.236.134l-2.02.489c-.354.067-.657-.236-.573-.573l.455-2.037a.543.543 0 0 1 .134-.236l.556-.555 2.24 2.222-.17.169-2.23-2.231 6.204-6.204 2.238 2.238-6.204 6.204-.007-.007zm5.068 3.822h-.017v-6.719l1.532-1.532v8.47a1.3 1.3 0 0 1-1.313 1.296H5.313A1.3 1.3 0 0 1 4 17.484V6.204c0-.708.59-1.297 1.313-1.297h8.352l-1.532 1.532h-6.6v10.827h11.314zm3.014-12.561a.478.478 0 0 1 0 .673l-.993.994-2.24-2.24.994-.993a.478.478 0 0 1 .673 0l1.566 1.566z"/>
                   </svg>

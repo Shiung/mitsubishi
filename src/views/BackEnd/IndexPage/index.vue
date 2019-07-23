@@ -14,6 +14,8 @@ export default {
           return 'Album Setting'
         case 'ordersAdmin':
           return 'order list'
+        case 'orderEditAdmin':
+          return 'order setting'
         case 'AdminstratorAdmin':
           return 'Adminstrator list'
         // 修改內頁
