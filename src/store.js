@@ -4,6 +4,8 @@ import Vuex from 'vuex'
 import albumChangeStore from './storeModule/albumChangeStore'
 // 後台
 import memberTableStore from './storeModule/admin/memberTableStore'
+import albumSizeTableStore from './storeModule/admin/albumSizeTableStore'
+import albumCoverTableStore from './storeModule/admin/albumCoverTableStore'
 
 Vue.use(Vuex)
 
@@ -26,7 +28,9 @@ export default new Vuex.Store({
   },
   modules: {
     albumChangeStore,
-    memberTableStore
+    memberTableStore,
+    albumSizeTableStore,
+    albumCoverTableStore
   }
 })
 

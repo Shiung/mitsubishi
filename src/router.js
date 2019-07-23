@@ -65,7 +65,25 @@ export default new Router({
         {
           path: 'albums',
           name: 'albumsAdmin',
-          component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/BackEnd/AlbumsPage')
+          redirect: 'albums',
+          component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/BackEnd/AlbumsPage'),
+          children: [
+            {
+              path: '',
+              name: 'AlbumSizeAdmin',
+              component: () => import(/* webpackChunkName: "AlbumSizePage" */ '@/views/BackEnd/AlbumSizePage')
+            },
+            {
+              path: 'cover',
+              name: 'AlbumCoverAdmin',
+              component: () => import(/* webpackChunkName: "AlbumCoverPage" */ '@/views/BackEnd/AlbumCoverPage')
+            },
+            {
+              path: 'layout',
+              name: 'AlbumLayoutAdmin',
+              component: () => import(/* webpackChunkName: "AlbumLayoutPage" */ '@/views/BackEnd/AlbumLayoutPage')
+            }
+          ]
         },
         {
           path: 'orders',

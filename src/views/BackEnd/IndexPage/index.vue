@@ -12,6 +12,12 @@ export default {
           return 'member list'
         case 'albumsAdmin':
           return 'Album Setting'
+        case 'AlbumSizeAdmin':
+          return 'Size list'
+        case 'AlbumCoverAdmin':
+          return 'cover list'
+        case 'AlbumLayoutAdmin':
+          return 'layout list'
         case 'ordersAdmin':
           return 'order list'
         case 'orderEditAdmin':

@@ -1,23 +1,12 @@
 <div class="albumsPage pt-5 pb-3">
   <nav class="nav d-flex justify-content-center align-items-center">
-    <a class="nav-link nav_btn font_14 text-capitalize" href="javascript:;">size</a>
-    <a class="nav-link nav_btn font_14 text-capitalize" href="javascript:;">cover</a>
-    <a class="nav-link nav_btn font_14 text-capitalize" href="javascript:;">pages</a>
-    <a class="nav-link nav_btn font_14 text-capitalize active" href="javascript:;">Layout</a>
+    <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumSizeAdmin'}">size</router-link>
+    <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumCoverAdmin'}">cover</router-link>
+    <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumLayoutAdmin'}">Layout</router-link>
   </nav>
 
-  <div class="history_area py-1 text-capitalize text-center font_14">
-    layout setting
-  </div>
-
-  <div class="px-5 py-4 d-flex flex-wrap">
-    <div class="layout_item d-flex flex-column justify-content-center align-items-center  mb-4" v-for='item in 8' :key="item">
-      <input type="checkbox">
-      <div class="layout_zone my-2">
-        <div class="layout_box">
-        </div>
-      </div>
-      <div class="text-center text-capitalize font_12">active</div>
-    </div>
-  </div>
+  <breadCrum class="border_top border_bottom m-0" :pathProps="breadCrumPath"/>
+  <transition name="fade" mode="out-in" appear>
+    <router-view></router-view>
+  </transition>
 </div>
