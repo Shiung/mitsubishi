@@ -18,6 +18,8 @@ export default {
           return 'add size'
         case 'AlbumCoverAdmin':
           return 'cover list'
+        case 'AlbumCoverAddAdmin':
+          return 'add cover'
         case 'AlbumLayoutAdmin':
           return 'layout list'
         case 'ordersAdmin':

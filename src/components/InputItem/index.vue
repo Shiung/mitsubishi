@@ -14,6 +14,7 @@
       class="form-control rounded-0"
       v-bind="$attrs"
       :value="value"
+      :class="inputClass"
       @input="$emit('input', $event.target.value)"></textarea>
 
     <slot name="error"></slot>
@@ -57,6 +58,9 @@ textarea{
   &:focus{
     box-shadow: none !important;
     border-color: $color-cus-green-back;
+  }
+  &::placeholder{
+    color:$color-cus-darkgray;
   }
 }
 </style>

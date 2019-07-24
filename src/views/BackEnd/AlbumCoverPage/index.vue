@@ -1,7 +1,7 @@
 <template>
   <div class="alubumCoverPage">
     <div class="option d-flex justify-content-end align-items-center">
-      <btnItem class="default text-capitalize" @click="createCover"><i class="material-icons font_18 mr-2">add</i>create cover</btnItem>
+      <btnItem class="default text-capitalize" @click="$router.push({name: 'AlbumCoverAddAdmin'})"><i class="material-icons font_18 mr-1">add</i>create cover</btnItem>
     </div>
 
     <div class="table_zone">
@@ -139,9 +139,6 @@ export default {
         this.showLoading = false
         this.showPagination = true
       })
-    },
-    createCover () {
-      console.log('建立 cover')
     },
     // 分頁
     prevPageGo () {

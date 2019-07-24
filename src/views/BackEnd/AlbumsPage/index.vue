@@ -30,6 +30,12 @@ export default {
             name: 'cover list', connect: false
           })
           break
+        case 'AlbumCoverAddAdmin':
+          path.push(
+            { name: 'cover listt', connect: true, connectPath: 'AlbumCoverAdmin' },
+            { name: 'add cover', connect: false }
+          )
+          break
         case 'AlbumLayoutAdmin':
           path.push({
             name: 'layout list', connect: false

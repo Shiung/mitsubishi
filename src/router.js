@@ -84,6 +84,11 @@ export default new Router({
               component: () => import(/* webpackChunkName: "AlbumCoverPage" */ '@/views/BackEnd/AlbumCoverPage')
             },
             {
+              path: 'cover/add',
+              name: 'AlbumCoverAddAdmin',
+              component: () => import(/* webpackChunkName: "AlbumCoverAddPage" */ '@/views/BackEnd/AlbumCoverAddPage')
+            },
+            {
               path: 'layout',
               name: 'AlbumLayoutAdmin',
               component: () => import(/* webpackChunkName: "AlbumLayoutPage" */ '@/views/BackEnd/AlbumLayoutPage')
