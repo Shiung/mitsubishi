@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/demo/'
+    ? '/' // '/demo/'
     : '/',
   // 全域sass變數
   css: {
