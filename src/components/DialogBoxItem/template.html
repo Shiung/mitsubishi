@@ -1,9 +1,11 @@
 <div class="dialogBoxItem position-fixed d-flex justify-content-center align-items-center" @click.self="cancel">
   <transition name="page" mode="out-in" appear>
-    <div class="dialog shadow" v-if="showBox">
+    <div class="dialog shadow" v-if="showBox" :class="{'dialog_sm' : dialogSize === 'small'}">
       <div class="header font-weight-bold text-center font_16">{{titleProps}}</div>
       <div class="subTitle text-center font_14">{{subTitleProps}}</div>
-      <div class="describe text-center font_12">{{describeProps}}</div>
+      <div class="describe text-center font_12">{{describeProps}}
+        <slot name="inputBox"></slot>
+      </div>
       <div class="options d-flex justify-content-around align-items-center mb-3">
         <button class="btn btn_cus font_12 text-capitalize" @click="cancel">取消 cancel</button>
         <button 

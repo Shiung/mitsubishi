@@ -21,6 +21,9 @@ export default {
     describeProps: {
       type: String,
       default: '印PされたアルバムH S HIの担当者によCD審査され、誰かがあ Eたに連絡しIA。'
+    },
+    dialogSize: {
+      type: String // small
     }
   },
   data () {

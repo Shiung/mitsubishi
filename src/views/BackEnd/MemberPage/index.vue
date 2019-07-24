@@ -2,7 +2,7 @@
   <div class="memberPage admin_page_box">
     <breadCrum class="border-bottom m-0" :pathProps="breadCrumPath"/>
     <div class="options d-flex justify-content-end align-items-center">
-      <button class="btn font_12 d-flex justify-content-center align-items-center" type="button"><i class="material-icons font_18 mr-1">person</i>Invite Member</button>
+      <btnItem class="inviteMember text-capitalize" @click="inviteBox"><i class="material-icons font_18 mr-1">person</i>Invite Member</btnItem>
     </div>
 
     <div class="table_zone">
@@ -84,6 +84,49 @@
       @nextPage="nextPageGo"
       @pageSelect="pageGo"
     />
+
+    <dialogBox
+      v-if="dialogStatus"
+      :idProps="dialogID"
+      :typeProps="dialogType"
+      :titleProps="dialogTitle"
+      :subTitleProps="dialogSubTitle"
+      :describeProps="dialogDescibe"
+      dialogSize="small"
+      @confrimEmit="confirmHandler"
+      @cancelEmit="dialogStatus = false"
+    >
+      <div slot="inputBox" class="d-flex align-items-center flex-column">
+        <inputType
+          type="email"
+          class="w250 text-left"
+          placeholder="peter@email.com"
+          autocomplete="off"
+          v-validate="'required|email'"
+          data-vv-as='email'
+          name="email"
+          :class="{'was-validated' : !errors.has('email') && email.length > 0}"
+          :inputClass="{'is-invalid' : errors.has('email')}"
+          v-model.trim="email">
+          Email / Eメール
+          <span class="font_12 text-danger" slot="error">{{ errors.first('email') }}</span>
+        </inputType>
+        <inputType
+          type="text"
+          class="w250 text-left"
+          placeholder="李彼得"
+          autocomplete="off"
+          v-validate="'required'"
+          data-vv-as='name'
+          name="name"
+          :class="{'was-validated' : !errors.has('name') && name.length > 0}"
+          :inputClass="{'is-invalid' : errors.has('name')}"
+          v-model.trim="name">
+          名前 / Member Name
+          <span class="font_12 text-danger" slot="error">{{ errors.first('name') }}</span>
+        </inputType>
+      </div>
+    </dialogBox>
   </div>
 </template>
 
@@ -100,12 +143,24 @@ export default {
       // loading
       showLoading: true,
       loadingOpacity: 0.8,
-      fullNone: false
+      fullNone: false,
+      // dialogBox提示視窗
+      dialogStatus: false,
+      dialogID: '',
+      dialogType: '', // 0: delete 1: confirm 2: print& Purchase
+      dialogTitle: '',
+      dialogSubTitle: '',
+      dialogDescibe: '',
+      email: '',
+      name: ''
     }
   },
   components: {
     breadCrum: () => import('@/components/BackBreadCrumbItem'),
-    paginationItem: () => import('@/components/PaginationItem')
+    paginationItem: () => import('@/components/PaginationItem'),
+    dialogBox: () => import('@/components/DialogBoxItem'),
+    inputType: () => import('@/components/InputItem'),
+    btnItem: () => import('@/components/ButtonItem')
   },
   computed: {
     // vuex
@@ -133,10 +188,64 @@ export default {
     },
     pageGo (val) {
       console.log(`前往 ${val}`)
+    },
+    // DialogBox
+    inviteBox () {
+      // 初始validate
+      this.email = ''
+      this.name = ''
+      // 打開DialogBox
+      this.dialogID = 123
+      this.dialogType = 1
+      this.dialogTitle = 'Invite Member'
+      this.dialogSubTitle = '邀請會員將會寄出Email 告知會員後台位置與登入金鑰'
+      this.dialogDescibe = ''
+      this.dialogStatus = true
+    },
+    confirmHandler (obj) {
+      // console.log(obj)
+      this.$validator.validate().then(result => {
+        if (!result) {
+          this.errorMessage('incomplete')
+        } else {
+          let email = this.email
+          let name = this.name
+          console.log(`新增: email => ${email}, name => ${name}`)
+        }
+      })
+    },
+    closeDialogBox () {
+      this.dialogStatus = false
+      this.dialogID = null
+      this.dialogType = null
+      this.dialogTitle = null
+      this.dialogSubTitle = null
+      this.dialogDescibe = null
+    },
+    errorMessage (type) {
+      if (type === 'incomplete') {
+        this.$snotify.error(`data incomplete`, {
+          showProgressBar: true,
+          pauseOnHover: false,
+          closeOnClick: true
+        })
+        this.sizeError = true
+      } else {
+        this.$snotify.error(`data error`, {
+          showProgressBar: true,
+          pauseOnHover: false,
+          closeOnClick: true
+        })
+      }
     }
   },
   mounted () {
     this.init()
+  },
+  watch: {
+    dialogStatus (val) {
+      !val && this.closeDialogBox()
+    }
   }
 }
 </script>
@@ -159,6 +268,9 @@ export default {
       }
     }
   }
+}
+.w250{
+  width: 250px;
 }
 
 // table customer

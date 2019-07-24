@@ -38,5 +38,6 @@ export default {
 .buttonItem{
   @include btnStyle(default, $color-cus-green, 130px, 30px, white, 0, 14px) ;
   @include btnStyle(cancel, $color-cus-darkgray, 130px, 30px, white, 0, 14px) ;
+  @include btnStyle(inviteMember, $color-cus-darkgray, 130px, 30px, white, 0, 12px) ;
 }
 </style>
