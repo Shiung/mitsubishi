@@ -1,6 +1,8 @@
 // @import "../../assets/scss/customer/utilty";
 .sideBarBack{
-  position: relative;
+  // position: relative;
+  position: sticky;
+  top:50px;
   background-color: $color-cus-green-back;
   width: $sideBarWidth;
   min-height: 600px;
