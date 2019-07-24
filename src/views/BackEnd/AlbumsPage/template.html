@@ -1,6 +1,6 @@
 <div class="albumsPage pt-5 pb-3">
   <nav class="nav d-flex justify-content-center align-items-center">
-    <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumSizeAdmin'}">size</router-link>
+    <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumSizeAdmin'}" :class="{active: routerName === 'AlbumSizeAddAdmin'}">size</router-link>
     <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumCoverAdmin'}">cover</router-link>
     <router-link class="nav-link nav_btn font_14 text-capitalize" :to="{name: 'AlbumLayoutAdmin'}">Layout</router-link>
   </nav>

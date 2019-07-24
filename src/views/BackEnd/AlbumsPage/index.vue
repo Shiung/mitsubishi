@@ -5,17 +5,25 @@ export default {
     breadCrum: () => import('@/components/BackBreadCrumbItem')
   },
   computed: {
+    routerName () {
+      return this.$route.name
+    },
     // 麵包屑
     breadCrumPath () {
-      let routerName = this.$route.name
       let path = [
         { name: 'Albums Setting', connect: true, connectPath: 'albumsAdmin' }
       ]
-      switch (routerName) {
+      switch (this.routerName) {
         case 'AlbumSizeAdmin':
           path.push({
             name: 'size list', connect: false
           })
+          break
+        case 'AlbumSizeAddAdmin':
+          path.push(
+            { name: 'size list', connect: true, connectPath: 'AlbumSizeAdmin' },
+            { name: 'add size', connect: false }
+          )
           break
         case 'AlbumCoverAdmin':
           path.push({

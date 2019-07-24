@@ -74,6 +74,11 @@ export default new Router({
               component: () => import(/* webpackChunkName: "AlbumSizePage" */ '@/views/BackEnd/AlbumSizePage')
             },
             {
+              path: 'size/add',
+              name: 'AlbumSizeAddAdmin',
+              component: () => import(/* webpackChunkName: "AlbumSizeAddPage" */ '@/views/BackEnd/AlbumSizeAddPage')
+            },
+            {
               path: 'cover',
               name: 'AlbumCoverAdmin',
               component: () => import(/* webpackChunkName: "AlbumCoverPage" */ '@/views/BackEnd/AlbumCoverPage')

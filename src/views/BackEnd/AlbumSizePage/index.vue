@@ -1,7 +1,7 @@
 <template>
   <div class="albumSizePage">
     <div class="option d-flex justify-content-end align-items-center">
-      <btnItem class="default text-capitalize" @click="createSize"><i class="material-icons font_18 mr-2">add</i>create size</btnItem>
+      <btnItem class="default text-capitalize" @click="$router.push({name: 'AlbumSizeAddAdmin'})"><i class="material-icons font_18 mr-1">add</i>create size</btnItem>
     </div>
 
     <div class="table_zone">
@@ -156,9 +156,6 @@ export default {
         this.showLoading = false
         this.showPagination = true
       })
-    },
-    createSize () {
-      console.log('建立尺寸')
     },
     // 分頁
     prevPageGo () {

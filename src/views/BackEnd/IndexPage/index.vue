@@ -14,6 +14,8 @@ export default {
           return 'Album Setting'
         case 'AlbumSizeAdmin':
           return 'Size list'
+        case 'AlbumSizeAddAdmin':
+          return 'add size'
         case 'AlbumCoverAdmin':
           return 'cover list'
         case 'AlbumLayoutAdmin':
