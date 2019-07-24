@@ -14,6 +14,10 @@ import VueLazyload from 'vue-lazyload'
 import Snotify, { SnotifyPosition } from 'vue-snotify'
 // vue2-dropzone
 import vue2Dropzone from 'vue2-dropzone'
+// vee 驗證
+import VeeValidate from 'vee-validate'
+// import zhTwValidate from 'vee-validate/dist/locale/zh_TW'
+import japanValidate from 'vee-validate/dist/locale/ja'
 
 Vue.config.productionTip = false
 
@@ -41,6 +45,11 @@ Vue.use(Snotify, options)
 
 // vue2-dropzone
 Vue.component('vueDropzone', vue2Dropzone) // 全域使用
+
+// vee use
+Vue.use(VeeValidate)
+// VeeValidate.Validator.localize('zh_TW', zhTwValidate) // 轉為中文字
+VeeValidate.Validator.localize('ja', japanValidate) // 轉為日文
 
 new Vue({
   router,
