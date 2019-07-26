@@ -150,7 +150,7 @@ var testData = [
         'h': 282.5,
         'type': 'img',
         'img': {
-          'src': 'https://www.tgilive.com/image/frontend/banner/A9BN-01.jpg'
+          'src': 'https://mpm-api.neplus.com.tw/storage/media/8/1564113019.jpg'
         },
         'translate': {
           'x': 0.32727272727272655,
@@ -175,7 +175,7 @@ var testData = [
         'h': 200,
         'type': 'img',
         'img': {
-          'src': 'https://www.tgilive.com/image/frontend/banner/B9BN-02.jpg'
+          'src': 'https://mpm-api.neplus.com.tw/storage/media/10/1564113326.jpg'
         },
         'translate': {
           'x': 0.01910112359550554,
@@ -219,7 +219,7 @@ var testData = [
         'h': 282.5,
         'type': 'img',
         'img': {
-          'src': 'https://www.tgilive.com/image/product/1230_B42SPL000TBO_img1.jpg'
+          'src': 'https://mpm-api.neplus.com.tw/storage/media/9/1564113073.jpg'
         },
         'translate': {
           'x': 0.32727272727272655,
@@ -236,7 +236,7 @@ var testData = [
         'h': 283.5,
         'type': 'img',
         'img': {
-          'src': 'https://www.tgilive.com/image/frontend/banner/C8BN-03.jpg'
+          'src': 'https://mpm-api.neplus.com.tw/storage/media/7/1564112686.jpg'
         },
         'translate': {
           'x': -0.026732209737827792,
