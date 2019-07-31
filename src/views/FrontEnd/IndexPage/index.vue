@@ -13,6 +13,8 @@ export default {
       switch (routerName) {
         case 'AlbumsPage':
           return 'albums list'
+        case 'ordersPage':
+          return 'order list'
         case 'createAlbumPage':
           return 'create album'
         case 'editAlbumPage':

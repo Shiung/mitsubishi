@@ -20,6 +20,11 @@ export default new Router({
           component: () => import(/* webpackChunkName: "AlbumsPage" */ '@/views/FrontEnd/AlbumsPage')
         },
         {
+          path: 'orders',
+          name: 'ordersPage',
+          component: () => import(/* webpackChunkName: "OrdersPage" */ '@/views/FrontEnd/OrdersPage')
+        },
+        {
           path: 'createAlbum',
           name: 'createAlbumPage',
           component: () => import(/* webpackChunkName: "CreateAlbumPage" */ '@/views/FrontEnd/CreateAlbumPage')

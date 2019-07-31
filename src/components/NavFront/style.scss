@@ -62,7 +62,8 @@
         top: -3px;
         visibility: hidden;
       }
-      &.active{
+      &.active,
+      &.router-link-exact-active{
         background: linear-gradient(180deg,$color-cus-blue 0%,$color-cus-lightblue 50%,$color-cus-blue 51%,$color-cus-blue 100%);
         color: #fff;
         &::before{

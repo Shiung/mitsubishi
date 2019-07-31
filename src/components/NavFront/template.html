@@ -42,11 +42,8 @@
   <div class="second_nav" >
     <div class="container h-100">
       <div class='row h-100 d-flex'>
-        <router-link class="d-flex justify-content-center align-items-center h-100 text-capitalize se_nav_btn active" :to="{name : 'AlbumsPage' }">
-          <!-- <a href="javascript:;" class="d-flex justify-content-center align-items-center h-100 text-capitalize se_nav_btn active">Albums</a> -->
-          Albums
-        </router-link>
-        <a href="javascript:;" class="d-flex justify-content-center align-items-center h-100 text-capitalize se_nav_btn ">order</a>
+        <router-link class="d-flex justify-content-center align-items-center h-100 text-capitalize se_nav_btn" :to="{name : 'AlbumsPage' }" :class="{active: $route.name === 'editAlbumPage' || $route.name === 'createAlbumPage'}">Albums</router-link>
+        <router-link class="d-flex justify-content-center align-items-center h-100 text-capitalize se_nav_btn" :to="{name : 'ordersPage' }">order</router-link>
       </div>
     </div>
   </div>  
