@@ -16,7 +16,8 @@ module.exports = {
   devServer: {
     proxy: {
       '/apiPathProxy':{
-        target : 'http://localhost:3004/', // 測試機
+        // target : 'http://localhost:3004/', // 測試機
+        target: 'https://mpm-api.neplus.com.tw/api/v1', // 測試機API
         changeOrigin: true,
         pathRewrite: {
           '^/apiPathProxy': ''
