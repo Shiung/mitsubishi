@@ -4,21 +4,51 @@
     <div class="login_area shadow d-flex flex-column align-items-center justify-content-center">
       <div class="form-group mb-4">
         <div class="input-group input_fix">
-          <input type="text" class="form-control px-0" placeholder="example@email.com">
+          <input 
+            type="text" 
+            class="form-control px-0" 
+            placeholder="example@email.com" 
+            v-model.trim="account"
+            v-validate="'required|email'"
+            data-vv-as='account'
+            name="account"
+            :class="{'is-invalid' : errors.has('account')}"
+          >
           <div class="input-group-append">
             <span class="input-group-text pr-0"><i class="material-icons">person</i></span>
           </div>
         </div>
+        <span class="font_12 text-danger" slot="error">{{ errors.first('account') }}</span>
       </div>
       <div class="form-group mb-4">
         <div class="input-group input_fix">
-          <input type="text" class="form-control px-0" placeholder="Passward">
+          <input 
+            type="password" 
+            class="form-control px-0" 
+            placeholder="Passward" 
+            v-model.trim="password"
+            v-validate="'required'"
+            data-vv-as='password'
+            name="password"
+            :class="{'is-invalid' : errors.has('password')}"
+          >
           <div class="input-group-append">
             <span class="input-group-text pr-0"><i class="material-icons">lock</i></span>
           </div>
         </div>
+        <span class="font_12 text-danger" slot="error">{{ errors.first('password') }}</span>
       </div>
-      <button class="loginBtn border-0 font_14 text-primary">Login</button>
+      <button class="loginBtn border-0 font_14 text-primary" @click="loginHandler">Login</button>
     </div>
   </div>
+  <loading
+    :active.sync="showLoading"
+    color="rgba(36, 94, 96,1)"
+    :opacity= "loadingOpacity"
+    :is-full-page="fullNone"
+    loader="dots"
+    style="z-index: 1021;"
+  >
+  </loading>
+  <vue-snotify></vue-snotify>
 </div>

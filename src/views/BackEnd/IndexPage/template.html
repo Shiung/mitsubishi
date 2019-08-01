@@ -10,7 +10,7 @@
       <div class='page_area'>
         <div class="container-fluid pr-0 pt-4">
           <transition name="fade" mode="out-in" appear>
-            <router-view class="page_area_zone"></router-view>
+            <router-view class="page_area_zone" v-if="adminToken"></router-view>
           </transition>
         </div>
       </div>

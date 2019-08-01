@@ -35,6 +35,7 @@ $btnBgUp3: #f8f8f8;
         @extend %inputType;
       }
       >input{
+        box-shadow: none;
         &::placeholder{
           color: $inputColor ;
         }
