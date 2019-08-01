@@ -9,32 +9,38 @@
       <div class="table_header sticky-top d-flex align-items-center border-bottom">
         <div data-column='ID'>
           <span class="font_14">ID</span>
-          <div class="font_12 d-flex align-items-center subTitle">
-            <span class="font_12 mr-2">Member ID</span>
-            <i class="material-icons font_16">play_arrow</i>
+          <div class="font_12 d-flex align-items-center subTitle sort">
+            <span class="font_12 mr-2" @click="sortHandler('id')">Member ID</span>
+            <i class="material-icons font_16"
+              :class="{'sort_up': paramsObj.sortedBy === 'asc' && paramsObj.orderBy === 'id', 'sort_down' : paramsObj.sortedBy === 'desc' && paramsObj.orderBy === 'id'}"
+              @click="sortHandler('id')">play_arrow</i>
           </div>
         </div>
         <div data-column='name'>
           <span class="font_14">名前</span>
-          <div class="font_12 d-flex align-items-center subTitle">
-            <span class="font_12 mr-2">Name</span>
-            <i class="material-icons font_16">play_arrow</i>
+          <div class="font_12 d-flex align-items-center subTitle sort">
+            <span class="font_12 mr-2" @click="sortHandler('name')">Name</span>
+            <i class="material-icons font_16"
+              :class="{'sort_up': paramsObj.sortedBy === 'asc' && paramsObj.orderBy === 'name', 'sort_down' : paramsObj.sortedBy === 'desc' && paramsObj.orderBy === 'name'}"
+              @click="sortHandler('name')">play_arrow</i>
           </div>
         </div>
         <div data-column='email'>
           <span class="font_14">電子郵件</span>
-          <div class="font_12 d-flex align-items-center subTitle">
-            <span class="font_12 mr-2">Email Address</span>
-            <i class="material-icons font_16">play_arrow</i>
+          <div class="font_12 d-flex align-items-center subTitle sort">
+            <span class="font_12 mr-2" @click="sortHandler('email')">Email Address</span>
+            <i class="material-icons font_16"
+              :class="{'sort_up': paramsObj.sortedBy === 'asc' && paramsObj.orderBy === 'email', 'sort_down' : paramsObj.sortedBy === 'desc' && paramsObj.orderBy === 'email'}"
+              @click="sortHandler('email')">play_arrow</i>
           </div>
         </div>
-        <div data-column='addr'>
+        <!-- <div data-column='addr'>
           <span class="font_14">地址</span>
           <div class="font_12 d-flex align-items-center subTitle">
             <span class="font_12 mr-2">Address</span>
             <i class="material-icons font_16">play_arrow</i>
           </div>
-        </div>
+        </div> -->
         <div data-column='lastTime'>
           <span class="font_14">最後登入時間</span>
           <div class="font_12 d-flex align-items-center subTitle">
@@ -49,11 +55,11 @@
             <td class="font_12" data-column='ID'>{{item.id}}</td>
             <td class="font_12" data-column='name'>{{item.name}}</td>
             <td class="font_12" data-column='email'>{{item.email}}</td>
-            <td class="font_12" data-column='addr'>
+            <!-- <td class="font_12" data-column='addr'>
               <div>{{item.addresCode}}</div>
               <div>{{item.address}}</div>
-            </td>
-            <td class="font_12" data-column='lastTime'>{{item.loginTime}}</td>
+            </td> -->
+            <td class="font_12" data-column='lastTime'>{{item.updated_at}}</td>
           </tr>
           <tr v-if="datatables.length === 0">
             <td colspan="6" class="text-center">沒有資料</td>
@@ -73,7 +79,7 @@
     </div>
 
     <paginationItem
-      v-if="showPagination"
+      v-if="showPagination && datatables.length !== 0"
       class="mt-5"
       :currentPage='currentPage'
       :totalPages='totalPages'
@@ -168,11 +174,12 @@ export default {
   },
   methods: {
     // vuex
-    ...mapActions('memberTableStore', ['getDatatable', 'getRequestParams', 'setParamsStatus', 'setTrashStatus']),
-    async init () {
+    ...mapActions('memberTableStore', ['initData', 'getDatatable', 'getRequestParams', 'setParamsStatus', 'setTrashStatus']),
+    async init (params = {}) {
+      this.initData()
       this.showLoading = true
       this.showPagination = false
-      this.getRequestParams()
+      this.getRequestParams(params)
       await this.getDatatable()
       this.$nextTick().then(() => {
         this.showLoading = false
@@ -181,13 +188,45 @@ export default {
     },
     // 分頁
     prevPageGo () {
-      console.log('上一頁')
+      // console.log('上一頁')
+      let current = this.currentPage
+      let params = this.paramsObj
+      const obj = {
+        ...params,
+        page: current - 1
+      }
+      this.init(obj)
     },
     nextPageGo () {
-      console.log('下一頁')
+      // console.log('下一頁')
+      let current = this.currentPage
+      let params = this.paramsObj
+      const obj = {
+        ...params,
+        page: current + 1
+      }
+      this.init(obj)
     },
     pageGo (val) {
-      console.log(`前往 ${val}`)
+      // console.log(`前往 ${val}`)
+      let choose = val
+      let params = this.paramsObj
+      const obj = {
+        ...params,
+        page: choose
+      }
+      this.init(obj)
+    },
+    sortHandler (val) {
+      let params = this.paramsObj
+      let orderBy = val
+      let sortedBy = params.sortedBy === '' || params.sortedBy === 'desc' ? 'asc' : 'desc'
+      let sortParams = {
+        ...params,
+        orderBy,
+        sortedBy
+      }
+      this.init(sortParams)
     },
     // DialogBox
     inviteBox () {
@@ -276,7 +315,7 @@ export default {
 // table customer
 $width1: 110px; // ID
 $width2: 120px; // name
-$width3: 200px; // email
+// $width3: 200px; // email
 $width4: 135px; // lastlogin
 
 [data-column=ID] {
@@ -286,13 +325,15 @@ $width4: 135px; // lastlogin
   width: $width2;
 }
 [data-column=email] {
-  width: $width3;
+  // width: $width3;
+  width: calc( 100% - #{$width1} - #{$width2} - #{$width4});
+  word-break: break-all;
 }
 [data-column=lastTime] {
   width: $width4;
 }
-[data-column=addr] {
-  width: calc( 100% - #{$width1} - #{$width2} - #{$width3} - #{$width4});
-  word-break: break-all;
-}
+// [data-column=addr] {
+//   width: calc( 100% - #{$width1} - #{$width2} - #{$width3} - #{$width4});
+//   word-break: break-all;
+// }
 </style>
