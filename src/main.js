@@ -23,6 +23,21 @@ Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
 axios.defaults.headers.common['Accept'] = 'application/json'
+axios.interceptors.response.use(data => {
+  // 更新token
+  if (data.headers.authorization) {
+    store.dispatch('adminStore/token_update', data.headers.authorization)
+  }
+  return data
+}, err => {
+  Vue.prototype.$snotify.error(`${err.response.data.message}`, {
+    showProgressBar: true,
+    pauseOnHover: false,
+    closeOnClick: true
+  })
+  // console.log('main js', err.response)
+  return Promise.reject(err)
+})
 
 // loading
 Vue.component('loading', Loading) // 全域使用
