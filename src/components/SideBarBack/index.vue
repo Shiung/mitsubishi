@@ -1,6 +1,15 @@
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'sideBarBack'
+  name: 'sideBarBack',
+  computed: {
+    // vuex
+    ...mapGetters('adminStore', ['adminInfo'])
+  },
+  methods: {
+    // vuex
+    ...mapActions('adminStore', ['log_out'])
+  }
 }
 </script>
 
