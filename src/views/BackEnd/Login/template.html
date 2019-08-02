@@ -12,6 +12,7 @@
             v-validate="'required|email'"
             data-vv-as='account'
             name="account"
+            autocomplete="off"
             :class="{'is-invalid' : errors.has('account')}"
           >
           <div class="input-group-append">
